@@ -1,0 +1,81 @@
+﻿@model Groups
+@{
+    var modules = ViewBag.modules as HashSet<Modules>;
+    ViewBag.Title = "Permissions";
+    var groupPermissions = _security.GetGroupPermissions(Model.Id);
+    var screens = _uow.ScreensRepository.GetMany(ent => ent.IsActive && !ent.IsDeleted).ToHashSet();
+    var screenPermissions = _uow.ScreenPermissionsRepository.GetAll().ToHashSet();
+    bool groupHasAllPermissions = false;
+}
+
+
+<div class="card ">
+    <div class="card-header text-center">
+        <h3> Permissions : @Model.ArabicName </h3>
+    </div>
+    <div class="card-body">
+
+        <div class="row justify-content-center">
+            <div class="btn-group" role="group" aria-label="Basic example">
+                <button class="btn btn-outline-warning" onclick="ResetGroupPermissions('@Model.Id')">
+                    <i class="fas fa-undo-alt"></i>
+                    إعادة تعيين أذونات المجموعة
+                </button>
+
+                <button class="btn btn-outline-info" onclick="GiveGroupAllPermissions('@Model.Id')">
+                    <i class="fas fa-check-double"></i>
+                    منح المجموعة كافة الأذونات
+                </button>
+            </div>
+        </div>
+
+        <hr />
+        <div class="card-group">
+            @foreach (var item in modules)
+            {
+                var moduleScreens = screens.Where(ent => ent.ModuleId == item.Id).Select(ent => ent.Id).ToHashSet();
+                var moduleScreenPermissions = screenPermissions.Where(ent => moduleScreens.Contains(ent.ScreenId)).ToHashSet();
+                var moduleGroupPermissions = groupPermissions.Where(ent => moduleScreens.Contains(ent.ScreenId));
+                groupHasAllPermissions = moduleScreenPermissions.Count()>0? moduleScreenPermissions.Count() == moduleGroupPermissions.Count():false;
+
+                <div class="card col-md-6 no-padding ">
+                    <div class="card-body">
+                        <div class="row justify-content-center">
+                            <div class="h1 text-center mb-4">
+                                <i class="@item.Icon"></i>
+                            </div>
+                        </div>
+                        <div class="row justify-content-center">
+                            <div class="h1 mb-0">
+                                <label class="form-control">
+
+                                    <span>@item.ArabicName</span>
+
+
+                                    <input type="checkbox" class="checkbox modulePermissions" onchange="ModulePermissions('@Model.Id','@item.Id',this)" @(groupHasAllPermissions ? "checked" : "") />
+                                </label>
+                            </div>
+                        </div>
+                        <div class="row justify-content-center">
+                            <div class="font-weight-bold">
+                                <a class="btn btn-outline-primary" href="javascript:;" onclick="Screens('@item.Id','@Model.Id')">
+                                    <i class="fa fa-laptop"></i>
+                                    Screens
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+        <hr />
+        <div class="form-action">
+            <a href="/Groups/Index" class="btn btn-outline-danger pull-right margin-0-5">
+                <i class="fas fa-undo-alt"></i>
+                Back
+            </a>
+        </div>
+    </div>
+</div>
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/js/Dev/Groups/Permission.js"></script>

@@ -1,0 +1,18 @@
+﻿
+    <div class="search-portlet">
+        <div class="row">
+            <div class="col-md-12">
+                <form action="/SystemOptions/Search" class="sp-form advanced-search sp-advanced-search" data-ajax="true" data-ajax-method="GET" data-ajax-mode="replace" data-ajax-update="" id="advancedSearchForm" method="post">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label class="control-label">"Category"</label>
+                            <select id="categories" name="category" asp-items="ViewBag.categories" class="form-control select2" onchange="Search(this)">
+                                <option value=""></option>
+                            </select>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+

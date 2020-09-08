@@ -1,0 +1,77 @@
+﻿<header>
+    <div class="header-container">
+        <partial name="_TopHeader" />
+       
+        <div class="row header-body">
+            <!-- top links -->
+
+            <div class="col-md-9 col-sm-8 hidden-xs">
+                <div class="mtmegamenu">
+                    <ul>
+                        <li class="mt-root demo_custom_link_cms">
+                            <div class="mt-root-item">
+                                <a href="/Home/Index">
+                                    <div class="title title_font"><span class="title-text">@SharedLocalizer.GetString("الرئيسة")</span></div>
+                                </a>
+                            </div>
+                        </li>
+
+                        <li class="mt-root demo_custom_link_cms">
+                            <div class="mt-root-item">
+                                <a href="/Home/Shop">
+                                    <div class="title title_font"><span class="title-text">@SharedLocalizer.GetString("Shop")</span></div>
+                                </a>
+                            </div>
+                        </li>
+
+                        <li class="mt-root">
+                            <div class="mt-root-item">
+                                <a href="/Home/ContactUs">
+                                    <div class="title title_font">
+                                        <span class="title-text">@SharedLocalizer.GetString("اتصل بينا")</span>
+                                    </div>
+                                </a>
+                            </div>
+                        </li>
+
+                        <li class="mt-root">
+                            <div class="mt-root-item">
+                                <a href="/Home/AboutUs">
+                                    <div class="title title_font">
+                                        <span class="title-text">@SharedLocalizer.GetString("ABOUTUS")</span>
+                                    </div>
+                                </a>
+                            </div>
+                        </li>
+                        <li class="mt-root">
+                            <div class="mt-root-item">
+                                <a href="/Hiring/index">
+                                    <div class="title title_font">
+                                        <span class="title-text">@SharedLocalizer.GetString("Hiring")</span>
+                                    </div>
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="call-us hidden-sm">
+                        <i class="fa fa-phone"></i>
+                        <div class="call-us-inner">
+                            <span class="call-text" style="display:block;">@SharedLocalizer.GetString("free call us") : </span>
+                            <span class="call-num"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4 col-md-3 col-xs-12">
+                <!-- Header Logo -->
+                <div class="logo">
+                    <a title="e-commerce" href="/Home/index">
+                        <img alt="e-commerce" class="img-circle" src="~/images/logo_.jpeg">
+                    </a>
+                </div>
+                <!-- End Header Logo -->
+            </div>
+
+        </div>
+    </div>
+</header>

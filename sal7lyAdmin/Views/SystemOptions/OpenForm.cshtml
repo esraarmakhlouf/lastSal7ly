@@ -1,0 +1,29 @@
+﻿@model SystemOption
+@{
+    Layout = null;
+    ViewBag.Title = "System Options";
+}
+    <div class="search-portlet">
+        <div class="row">
+            <div class="col-md-12">
+                <form data-ajax="true" data-ajax-mode="replace" asp-action="Save" asp-controller="SystemOptions" method="post" enctype="multipart/form-data" data-ajax-complete="AfterSave" id="SystemOptionsForm" class="sp-form">
+                    @if (Model.Id != default(long))
+                    {<input asp-for="Id" type="hidden" />}
+
+                <section>
+                    <partial name="_RowTemplate" model="Model" />
+                </section>
+                </form>
+            </div>
+        </div>
+    </div>
+
+<script src="~/js/Dev/SystemOptions/OpenForm.js"></script>
+<partial name="_ValidationScriptsPartial" />
+<script>
+    $('.EndDeal').bootstrapMaterialDatePicker({
+        // clearButton: true,
+        format: 'DD/MM/YYYY HH:mm',
+        minDate: new Date()
+    });
+</script>

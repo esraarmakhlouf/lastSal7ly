@@ -1,0 +1,86 @@
+﻿@{ 
+    string source = ViewBag.source as string;
+}
+
+    <div class="search-portlet">
+        <div class="row">
+            <div class="col-md-12">
+                <form action="/Services/Search" class="advanced-search" data-ajax="true" data-ajax-method="GET" data-ajax-mode="replace" data-ajax-update="" id="advancedSearchForm" method="post" style="display: none;">
+                    <input type="hidden" id="source" value="@ViewBag.source" name="source" />
+                    <div class="row">
+                        <div class="form-group  col-md-6">
+                            <label>الاسم العربي</label>
+                            <input type="text" class="form-control" placeholder="الاسم العربي" name="ArabicName">
+                        </div>
+                        <div class="form-group  col-md-6">
+                            <label>الاسم الانجليزي</label>
+                            <input type="text" class="form-control" placeholder="الاسم الانجليزي" name="EnglishName">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group  col-md-6">
+                            <label>الكود</label>
+                            <input type="text" class="form-control" placeholder="الكود" name="Code">
+                        </div>
+                        <div class="form-group  col-md-6">
+                            <br />
+                            <div class="CheckBoxInput">
+                                <input class="styled-checkbox" id="styled-checkbox-1" type="checkbox">
+                                <label for="styled-checkbox-1"> نشط</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-action">
+                        <button type="submit" class="btn btn-primary pull-right margin-0-5" id="searchButton"  onclick="Search(this)">
+                            <i class="fas fa-search"></i>
+                            Search
+                        </button>
+                    </div>
+                    <div class="form-action">
+                        <button onclick="GoNormalSearch(this)" type="button" class="margin-0-5 btn btn-secondary  pull-right">
+                            <i class="fas fa-search"></i>
+                           البحث العادي
+                        </button>
+                    </div>
+                </form>
+
+                <form action="/Services/Search" class="normal-search" data-ajax="true" data-ajax-method="POST" data-ajax-mode="replace" data-ajax-update="#listDiv" data-ajax-complete="SearchComplete" id="SearchForm" method="post" style="display: block;">
+                    <input type="hidden" id="source" value="@ViewBag.source" />
+
+                    <div class="form-group col-md-12" id="SearchList">
+                        <div class="input-group row form-group">
+                            <div class="input-group-btn">
+                                <div class="btn-group">
+                                    <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle btn btn-primary selected">   الاسم العربي</button>
+                                    <ul class="dropdown-menu">
+                                        <li class="searchkey activekey" data-searchkey="ArabicName"> <a  href="javascript:;">   الاسم العربي</a> </li>
+                                        <li class="searchkey" data-searchkey="EnglishName"> <a href="javascript:;">   الاسم الانجليزي</a> </li>
+                                        <li class="searchkey" data-searchkey="Code"> <a href="javascript:;"> الكود</a> </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <input type="text" class="form-control searchTerm" name="SearchTerm" placeholder="SearchHere">
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <button type="button" id="searchButton" class="btn btn-primary pull-right margin-0-5" onclick="Search(this)">
+                                <i class="fas fa-search"></i>&nbsp; 
+                                Search
+                                </button>
+                                <div class="form-action">
+                                    <button onclick="GoAdvancedSearch(this)" type="button" class="margin-0-5 btn btn-secondary pull-right">
+                                        <i class="fas fa-search"></i>
+                                       البحث المتقدم
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>

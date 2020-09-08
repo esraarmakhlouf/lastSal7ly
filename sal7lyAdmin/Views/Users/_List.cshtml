@@ -1,0 +1,56 @@
+﻿@model HashSet<Users>
+
+<table class="table table-striped table-bordered data-table">
+    <thead>
+        <tr>
+            <th>الصورة</th>
+            <th>الكود</th>
+            <th>الاسم العربي</th>
+            <th>الاسم الانجليزي</th>
+            <th>الهاتف</th>
+            <th>الموقع</th>
+            <th class="no-sort">نشط</th>
+            <th class="no-sort"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td><img src="~/@AppSession.UserUploads/@item.ImageName" class="img-circle" width="60" height="60" /> </td>
+                <td>@item.Code</td>
+
+                <td>@item.ArabicName</td>
+                <td>@item.EnglishName</td>
+                <td>@item.Mobile</td>
+                <td>@item.Location</td>
+
+                <td>
+                    <input class="styled-checkbox" type="checkbox" id="styled-checkbox-2" disabled @(item.IsActive ? "checked" : "") />
+                    <label for="styled-checkbox-2"></label>
+                </td>
+
+                <td class="button">
+                    @if (UserAccountMannager.HasPermission(_uow, _security, AppSession.CurrentUser.Id, EN_Screens.Users, EN_Permissions.Edit))
+                    {
+                        <a class="btn btn-outline-primary" href="/Users/OpenForm/@item.Id">
+                            <i class="fas fa-pencil-alt"></i>
+                            <span class="text"> تعديل</span>
+                        </a>
+                    }
+
+                    @if (UserAccountMannager.HasPermission(_uow, _security, AppSession.CurrentUser.Id, EN_Screens.Users, EN_Permissions.Delete))
+                    {
+                        <button type="button" class="btn btn-sp btn-outline-danger" onclick="ShowDeleteAlert('Users','@item.Id')">
+                            <i class="far fa-trash-alt"></i>
+                            <span class="text"> حذف</span>
+                        </button>
+                    }
+
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<script src="~/js/Dev/Users/_List.js"></script>

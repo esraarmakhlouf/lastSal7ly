@@ -1,0 +1,31 @@
+﻿@model HashSet<Groups>
+@{
+    ViewBag.Title = "المجموعات";
+}
+
+<div class="card ">
+    <div class="card-header text-center">
+        <h3> المجموعات</h3>
+    </div>
+    <div class="card-body">
+        <div class="grid-container">
+            <partial name="_SearchForm" />
+            @if (UserAccountMannager.HasPermission(_uow, _security, AppSession.CurrentUser.Id, EN_Screens.Groups, EN_Permissions.Create))
+            {
+                <button class="btn btn-warning mb-2" onclick="OpenForm(null)">
+                    <i class="fas fa-plus"></i>
+                  اضافة
+                </button>
+            }
+            <div id="listDiv">
+                <partial name="_List" model="@Model" />
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/js/Dev/Groups/Index.js"></script>
+
+<script>
+    var Groups = 'Groups';
+</script>

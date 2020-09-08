@@ -1,0 +1,20 @@
+﻿
+@using decor
+@using Decor.Model
+@using Model
+@using BL
+@using Decor.Services
+@using Microsoft.AspNetCore.Mvc.Localization
+@using BL.Security
+
+@using BL.Infrastructure
+@using BL.SharedCS
+@using Microsoft.EntityFrameworkCore
+@using static BL.SharedCS.Enumrations
+@using System.Globalization;
+
+@inject LocService SharedLocalizer
+@inject IViewLocalizer Localizer
+@inject BL.Secuirty.ISecurity _Security
+@inject IUnitOfWork _uow
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers

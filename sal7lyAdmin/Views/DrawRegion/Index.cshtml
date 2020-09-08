@@ -1,0 +1,30 @@
+﻿@model HashSet<Region>
+@{
+    ViewBag.Title = "Region";
+}
+
+
+<div class="card ">
+    <div class="card-header text-center">
+        <h3> Region</h3>
+    </div>
+    <div class="card-body">
+        <div class="grid-container">
+            <partial name="_SearchForm" />
+            @if (UserAccountMannager.HasPermission(_uow, _security, AppSession.CurrentUser.Id, EN_Screens.Regions, EN_Permissions.Create))
+            {
+                <a class="btn btn-warning mb-2" href="/DrawRegion/OpenForm">
+                    <i class="fas fa-plus"></i>
+                  اضافة
+                </a>
+            }
+            <div id="listDiv">
+                <partial name="_List" model="@Model" />
+            </div>
+        </div>
+
+    </div>
+</div>
+<script>
+    var Region = '@Html.Raw("Region")';
+</script>

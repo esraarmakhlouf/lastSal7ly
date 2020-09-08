@@ -1,0 +1,93 @@
+﻿@model Country
+@{
+    ViewBag.Title = "Countries";
+    var Cities = _uow.CityRepository.GetMany(ent => !ent.IsDeleted && ent.CountryID == Model.Id).ToHashSet();
+}
+
+
+<div class="card ">
+    <div class="card-header text-center">
+        <h3> Country</h3>
+    </div>
+    <div class="card-body">
+        <form data-ajax="true" data-ajax-mode="replace" asp-action="Save" asp-controller="Country" method="post" enctype="multipart/form-data"  id="CountryForm">
+
+            @if (Model.Id != default(long))
+            {<input asp-for="Id" type="hidden" />}
+            <input asp-for="CreationDate" type="hidden" />
+            <input asp-for="CreatedBy" type="hidden" />
+            <input asp-for="IsDeleted" type="hidden" />
+
+            <fieldset>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            <label class="control-label required">الاسم العربي</label>
+                            <input asp-for="ArabicName" class="form-control" required placeholder="الاسم العربي" />
+                            <span asp-validation-for="ArabicName" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-group">
+                            <label class="control-label required">الاسم الانجليزي</label>
+                            <input asp-for="EnglishName" class="form-control" placeholder="الاسم الانجليزي" />
+                            <span asp-validation-for="EnglishName" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            <label class="control-label">الكود</label>
+                            <input asp-for="Code" disabled class="form-control" placeholder="الكود" />
+                            <span asp-validation-for="Code" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <br />
+                        <div class="form-group">
+                            <label class="control-label">نشط</label>
+                            <label class="">
+                                @Html.CheckBox("IsActive", Model.IsActive)
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+
+            </fieldset>
+
+            <div class="breadcrumbs">
+                <div class="col-sm-4">
+                    <div class="page-header float-left">
+                        <div class="page-title">
+                            <h1>Cities</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <partial name="_Cities" model="Model" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group text-center">
+                        <button class="form cotrol btn btn-success" id="submitCountry" name="submitCountry" type="button" onclick="Save()"> <i class="fas fa-save"></i>حفظ</button>
+                        <a class="form cotrol btn btn-danger" href="/Country/Index" id="cancel" name="cancel"><i class="fas fa-undo-alt"></i>رجوع</a>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<script src="~/js/Dev/Country/OpenForm.js"></script>
+<partial name="_ValidationScriptsPartial" />
+
+
+
+
+
+

@@ -1,0 +1,59 @@
+﻿@model Country
+@{
+
+    var Cities = _uow.CityRepository.GetMany(ent => !ent.IsDeleted && ent.CountryID == Model.Id).Include(ent=>ent.Districts).Select(ent=>new City {
+        ArabicName=ent.ArabicName,
+        EnglishName=ent.EnglishName,
+        Code=ent.Code,
+        CountryID=ent.CountryID,
+        Id=ent.Id,
+        IsActive=ent.IsActive,
+        IsDeleted=ent.IsDeleted,
+        Districts=ent.Districts.ToList()
+    }).ToHashSet();
+}
+
+<table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>الاسم العربي</th>
+            <th>الاسم الانجليزي</th>
+           <th>Districts</th>
+            <th>
+                <button type="button" class="btn btn-outline-dark" onclick="AddCity()">
+                    <i class="fas fa-plus"></i>
+                </button>
+            </th>
+        </tr>
+    </thead>
+    <tbody class="citiesTB">
+        @foreach (var city in Cities)
+        {
+            <tr data-id="@city.Id">
+                <td>
+                    <input type="text" name="CityArabicName" class="form-control" value="@city.ArabicName" placeholder="الاسم العربي" />
+                </td>
+                <td>
+                    <input type="text" name="CityEnglishName" class="form-control" value="@city.EnglishName" placeholder="الاسم الانجليزي" />
+                </td>
+                <td class="button">
+                    <button type="button" class="btn btn-outline-primary" onclick="OpenFormDistrict(this)">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                </td>
+                <td>
+                    <button type="button" class="btn btn-outline-danger" onclick="DeleteCity(this)">
+                        <i class="fas fa-trash-alt"></i>
+                    </button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<partial name="_ValidationScriptsPartial" />
+<script>
+    var jsonCities =@Html.Raw(Json.Serialize(Cities));
+    var Districts = '@Html.Raw("Districts")';
+</script>

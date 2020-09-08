@@ -1,0 +1,33 @@
+﻿@model HashSet<Country>
+@{
+    ViewBag.Title = "Countries";
+}
+
+<div class="card ">
+    <div class="card-header text-center">
+        <h3> Countries Cities ,Districts</h3>
+    </div>
+    <div class="card-body">
+
+        <div class="grid-container">
+            <partial name="_SearchForm" />
+            @if (UserAccountMannager.HasPermission(_uow, _security, AppSession.CurrentUser.Id, EN_Screens.Country, EN_Permissions.Create))
+            {
+                <a class="btn btn-warning mb-2" href="/Country/OpenForm">
+                    <i class="fas fa-plus"></i>
+                  اضافة
+                </a>
+            }
+            <div id="listDiv">
+                <partial name="_List" model="@Model" />
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/js/Dev/Country/Index.js"></script>
+
+<script>
+    var Countries = '@Html.Raw("Countries"))';
+</script>

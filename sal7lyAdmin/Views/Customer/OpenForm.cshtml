@@ -1,0 +1,142 @@
+﻿@model Customer
+@{
+    ViewBag.Title = "العملاء";
+}
+
+<div class="card ">
+    <div class="card-header text-center">
+        <h3> العملاء</h3>
+    </div>
+    <div class="card-body">
+        <form data-ajax="true" data-ajax-mode="replace" asp-action="Save" asp-controller="Customer" method="post" enctype="multipart/form-data" id="CustomerForm">
+
+            @if (Model.Id != default(long))
+            {<input asp-for="Id" type="hidden" />}
+            <input asp-for="Code" type="hidden" />
+            <input asp-for="CreationDate" type="hidden" />
+            <input asp-for="CreatedBy" type="hidden" />
+            <input asp-for="IsDeleted" type="hidden" />
+            <input asp-for="ImageName" type="hidden" />
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label class="control-label">الاسم العربي</label>
+                        <input asp-for="ArabicName" class="form-control" placeholder="الاسم العربي" />
+                        <span asp-validation-for="ArabicName" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label class="control-label">الاسم الانجليزي</label>
+                        <input asp-for="EnglishName" class="form-control" placeholder="الاسم الانجليزي" />
+                        <span asp-validation-for="EnglishName" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label class="control-label required">الاسم المستخدم</label>
+                        <input name="UserName" data-val="true" data-val-required="Required" value="@Model.UserName" class="form-control" placeholder="UserName" )" autocomplete="new-password" />
+                        <span asp-validation-for="UserName" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label class="control-label required">كلمة السر</label>
+                        <input type="password" asp-for="Password" class="form-control" placeholder="Password" autocomplete="new-password" value="@(string.IsNullOrEmpty(Model.Password) ? "" : EncryptANDDecrypt.DecryptText(Model.Password))" />
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label class="control-label">الهاتف</label>
+                        <input asp-for="Mobile" class="form-control" placeholder="Mobile" />
+                        <span asp-validation-for="Mobile" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label class="control-label">العنوان</label>
+                        <input asp-for="Address" class="form-control" placeholder="العنوان" />
+                        <span asp-validation-for="Address" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label class="control-label">الكود</label>
+                        <input asp-for="Code" disabled class="form-control" placeholder="الكود" />
+                        <span asp-validation-for="Code" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col">
+                    <br />
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group">
+                                <label class="control-label">نشط</label>
+                                <label class="">
+                                    @Html.CheckBox("IsActive", Model.IsActive)
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <div class="form-group">
+                                <label class="control-label">EmailActivated</label>
+                                <label class="">
+                                    @Html.CheckBox("EmailActivated", Model.EmailActivated)
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+            <div class="row">
+                <div id="imageContainer" class="imageContainer">
+                    <div class="col-md-2" id="customerImagecontainer">
+
+                        @if (Model.ImageName != null && Model.ImageName != "")
+                        {
+                            <img src="~/@AppSession.CustomerUploads/@Model.ImageName" class="img-circle" width="60" height="60" />
+                        }
+                    </div>
+                    <div class="col-md-2" id="fileImagecontainer">
+
+                    </div>
+                </div>
+
+                <div class="col">
+                    @*<button type="button" class="btn btn-outline-primary pull-right addfile">
+                    <i class="fas fa-paperclip"></i>
+                </button>
+                <input class="fileinput" type="file" id="Image" accept="*/image" style="display:none;" />*@
+                    <input class="fileinput" type="file" onchange="fileinputchange(this)" id="Image" accept="*/image" />
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group text-center">
+                        <button class="form cotrol btn btn-success" id="submitCustomer" name="submitCustomer" type="button" onclick="Save()"> <i class="fas fa-save"></i>حفظ</button>
+                        <a class="form cotrol btn btn-danger" href="/Customer/Index" id="cancel" name="cancel"><i class="fas fa-undo-alt"></i>رجوع</a>
+                    </div>
+                </div>
+            </div>
+            
+        </form>
+    </div>
+</div>
+
+
+<script src="~/js/Dev/Customer/OpenForm.js"></script>
+<partial name="_ValidationScriptsPartial" />

@@ -1,0 +1,410 @@
+﻿
+<style>
+
+
+    ul.menu {
+        list-style-type: none;
+        background: grey;
+        margin: 0;
+        overflow: hidden;
+    }
+
+        ul.menu li {
+            background: #eee;
+            float: left;
+            padding: 9px;
+            margin-right: 2px;
+            line-height: 13px;
+            margin-top: -1px;
+        }
+
+            ul.menu li:hover {
+                background: #10707f;
+            }
+
+                ul.menu li:hover a {
+                    color: #fff !important;
+                }
+
+            ul.menu li a {
+                text-decoration: none;
+                font-size: 14px;
+                font-weight: 500;
+                color: #10707f;
+            }
+</style>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User-Editable Shapes</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+
+</head>
+<body>
+
+
+    <section id="placeholder">
+        <ul class="menu" style="width: 1000px; height: 30px; margin-top:1%; height: 35px; padding: 5px;">
+            @*<li class="clear"><a href="#">CLEAR</a></li>*@
+            @*<li class="edit"><a href="#">EDIT</a></li>*@
+            <li class="draw"><i class="fad fa-compress-alt"></i><a href="#">DRAW</a></li>
+            <li class="draw-cycle"><i class="fal fa-retweet"></i><a href="#">DRAW Cycle</a></li>
+        </ul>
+        <div id="map" style="width: 1000px; height: 500px;margin-top:0%"></div>
+    </section>
+    <br />
+    <div class="row">
+        <div class="col">
+            <div class="form-group text-center">
+                <button class="form cotrol btn btn-success" id="saveBtn"> <i class="fas fa-save"></i>حفظ</button>
+                <a class="form cotrol btn btn-danger" href="/DrawRegion/Index" id="cancel" name="cancel"><i class="fas fa-undo-alt"></i>رجوع</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+
+
+<script>
+    var PointsOfShape = [];
+    var LstOfRegion = [];
+
+                var isDrawCycle = false
+                var the_circle = null;
+    function initMap() {
+
+        var googleMapApp = {
+            newShape: "",
+            markers: "",
+            map: "",
+            setAllMap: function (map) {
+                for (var i = 0; i < this.markers.length; i++) {
+                    this.markers[i].setMap(map);
+                }
+            },
+            clearMarkers: function () {
+                this.setAllMap(null);
+            },
+            showMarkers: function () {
+                this.setAllMap(map);
+            },
+            setMarkers: function (map, locations) {
+                // Add markers to the map
+
+                // Marker sizes are expressed as a Size of X,Y
+                // where the origin of the image (0,0) is located
+                // in the top left of the image.
+
+                // Origins, anchor positions and coordinates of the marker
+                // increase in the X direction to the right and in
+                // the Y direction down.
+                var image = {
+                    url: 'http://www.dirtbikerider.com/tmx/images/markers/marker0.png',
+                    // This marker is 20 pixels wide by 32 pixels tall.
+                    size: new google.maps.Size(20, 32),
+                    // The origin for this image is 0,0.
+                    origin: new google.maps.Point(0, 0),
+                    // The anchor for this image is the base of the flagpole at 0,32.
+                    anchor: new google.maps.Point(0, 32)
+                };
+                // Shapes define the clickable region of the icon.
+                // The type defines an HTML &lt;area&gt; element 'poly' which
+                // traces out a polygon as a series of X,Y points. The final
+                // coordinate closes the poly by connecting to the first
+                // coordinate.
+                var shape = {
+                    coord: [1, 1, 1, 20, 18, 20, 18, 1],
+                    type: 'poly'
+                };
+                for (var i = 0; i < locations.length; i++) {
+                    var beach = locations[i];
+                    var myLatLng = new google.maps.LatLng(beach[1], beach[2]);
+                    var marker = new google.maps.Marker({
+                        position: myLatLng,
+                        map: map,
+                        icon: image,
+                        shape: shape,
+                        title: beach[0],
+                        zIndex: beach[3]
+                    });
+                }
+            },
+            invoke: function () {
+                var that = this;
+                $(".edit").click(function (e) {
+                    e.preventDefault();
+
+                    if ($(this).data("editing")) {
+                        $(this).data("editing", false);
+                        that.newShape.setEditable(false);
+                    } else {
+                        $(this).data("editing", true);
+                        that.newShape.setEditable(true);
+                    }
+                });
+                $(".clear").click(function (e) {
+                    e.preventDefault();
+                    console.log("clear");
+                    that.newShape.setMap(null);
+                });
+                $("#saveBtn").click(function (e) {
+                    e.preventDefault();
+
+                    if (that.newShape != "") {
+                        that.newShape.setMap(null);
+                    }
+                    if (the_circle != null) {
+                        the_circle.setMap(null);
+                    }
+                    CallAjaxToSaveRegion(LstOfRegion);
+                    LstOfRegion = [];
+
+                });
+
+                $(".draw-cycle").click(function (e) {
+
+                    e.preventDefault();
+                    var mousemove_handler;
+                    if (the_circle != null) {
+                        the_circle.setEditable(false);
+                        isDrawCycle = false;
+
+                    }
+                    google.maps.event.addListener(that.map, 'mouseup', function (e) {
+
+                        if (mousemove_handler) google.maps.event.removeListener(mousemove_handler);
+                        that.map.setOptions({ draggable: true, draggableCursor: '' }); //allow map dragging after the circle was already created
+                        the_circle.setOptions({ clickable: true });
+                        if (isDrawCycle == false) {
+                            enterRegion(true);
+                        }
+                    });
+                    google.maps.event.addListenerOnce(that.map, 'mousedown', function (mousedown_event) {
+                        var radius = google.maps.geometry.spherical.computeDistanceBetween(mousedown_event.latLng, mousedown_event.latLng); //get distance in meters between our static position and clicked position, which is the radius of the circle
+                        the_circle = createCircle(mousedown_event.latLng, 10); //create circle with center in our static position and our radius
+                        var oldradius = mousedown_event.latLng;
+                        mousemove_handler = google.maps.event.addListener(that.map, 'mousemove', function (mousemove_event) { //if after mousedown user starts dragging mouse, let's update the radius of the new circle
+                            var new_radius = google.maps.geometry.spherical.computeDistanceBetween(oldradius, mousedown_event.latLng);
+                            console.log(new_radius);
+                            the_circle.setOptions({ radius: new_radius });
+                        });
+                    });
+                });
+
+
+                function createCircle(center, radius) {
+
+                    var circle = new google.maps.Circle({
+                        fillColor: '#ffffff',
+                        fillOpacity: .6,
+                        strokeWeight: 1,
+                        strokeColor: '#ff0000',
+                        draggable: false,
+                        editable: true,
+                        map: that.map,
+                        center: center,
+                        radius: radius,
+                        clickable: false
+                    });
+
+                    google.maps.event.addListener(circle, 'radius_changed', function (event) {
+                        console.log('circle radius changed');
+
+                        LstOfRegion[LstOfRegion.length - 1].Radius = circle.radius;
+
+                        LstOfRegion[LstOfRegion.length - 1].CenterLat = circle.center.lat();
+                        LstOfRegion[LstOfRegion.length - 1].CenterLong = circle.center.lng();
+                    });
+
+                    google.maps.event.addListener(circle, 'center_changed', function (event) {
+                        if (circle.getCenter().toString() !== center.toString()) {
+                            circle.setCenter(center);
+                            LstOfRegion[LstOfRegion.length - 1].CenterLat = circle.center.lat();
+                            LstOfRegion[LstOfRegion.length - 1].CenterLong = circle.center.lng();
+                        }
+                    });
+                    console.log(circle);
+
+                    return circle;
+                }
+
+                $(".draw").click(function (e) {
+                    e.preventDefault();
+
+                    if (the_circle != null)
+                        the_circle.setEditable(false);
+                    var drawingManager = new google.maps.drawing.DrawingManager({
+                        drawingMode: google.maps.drawing.OverlayType.POLYGON,
+                        drawingControl: false,
+                        drawingControlOptions: {
+                            position: google.maps.ControlPosition.TOP_RIGHT,
+                            drawingModes: [google.maps.drawing.OverlayType.POLYGON]
+                        },
+
+                        polygonOptions: {
+                            fillColor: '#0099FF',
+                            fillOpacity: 0.7,
+                            strokeColor: '#AA2143',
+                            strokeWeight: 2,
+                            clickable: true,
+                            zIndex: 1,
+                            editable: true
+                        }
+                    });
+                    drawingManager.setMap(that.map);
+                    console.log("Points", drawingManager);
+
+                    google.maps.event.addListener(drawingManager, 'overlaycomplete', function (e) {
+                        if (e.type != google.maps.drawing.OverlayType.MARKER) {
+                            drawingManager.setDrawingMode(null);
+                        }
+
+                        // Add an event listener that selects the newly-drawn shape when the user
+                        // mouses down on it.
+                        that.newShape = e.overlay;
+
+                        that.newShape.type = e.type;
+
+                        google.maps.event.addListener(that.newShape, 'click', function () {
+                            //setSelection(this);
+                        });
+
+                        //setSelection(newShape);
+                        //storePolygon(newShape.getPath());
+                        PointsOfShape = [];
+
+                        $.each(that.newShape.getPath().getArray(), function (key, latlng) {
+
+                            var ObjectToPush = new Object();
+
+                            ObjectToPush.lat = latlng.lat();
+                            ObjectToPush.long = latlng.lng();
+                            PointsOfShape.push(ObjectToPush);
+                        });
+                        var Region = new Object();
+
+
+                        that.newShape.setEditable(false);
+                        enterRegion(false,PointsOfShape);
+                        // CallAjaxToSaveRegion(LstOfRegion)
+                    });
+
+
+                });
+
+
+
+                //fake database info
+
+                this.map = null;
+                var mapDefaults = {
+                    zoom: 12,
+                    center: null,
+                    draggable: false,
+                    mapTypeId: google.maps.MapTypeId.ROADMAP,
+
+                    draggableCursor: 'pointer'
+                };
+                // documentReady
+                $(function () {
+                    var mapPosition = new google.maps.LatLng(-33.890542, 151.274856);
+                    mapDefaults.center = mapPosition;
+                    that.map = new google.maps.Map(document.getElementById("map"), mapDefaults);
+
+
+                    //var beaches = [
+                    //    ['Bondi Beach', -33.890542, 151.274856, 4],
+                    //    ['Coogee Beach', -33.923036, 151.259052, 5],
+                    //    ['Cronulla Beach', -34.028249, 151.157507, 3],
+                    //    ['Manly Beach', -33.80010128657071, 151.28747820854187, 2],
+                    //    ['Maroubra Beach', -33.950198, 151.259302, 1]
+                    //];
+
+                    //that.setMarkers(that.map, beaches);
+
+                });
+
+
+            }
+        }
+
+
+        // documentReady
+        $(function () {
+            googleMapApp.invoke();
+        });
+    }
+
+    function enterRegion( isCycle,PointsOfShape) {
+        if(isCycle==true)
+        isDrawCycle = true;
+        var Region = new Object();
+        
+            var RegoinEnglishName = prompt("Please enter Region English Name", "");
+
+        var RegoinArabicName =""
+            do{
+     RegoinArabicName = prompt("Please enter Region Arabic Name ", "");
+} while(RegoinArabicName !== null && RegoinArabicName === "")
+            Region.ArabicName = RegoinArabicName;
+        
+
+                            Region.ArabicName = RegoinEnglishName;
+                            Region.LstOfPoints = PointsOfShape;
+                            Region.Radius = 0;
+                            Region.CenterLat = 0;
+                            Region.CenterLong = 0;
+                            Region.Iscycle = isCycle;
+                            LstOfRegion.push(Region);
+    }
+    function CallSave() {
+        LstOfRegion = null;
+        the_circle.setMap(null);
+        CallAjaxToSaveRegion(LstOfRegion);
+    }
+    function CallAjaxToSaveRegion(Regions) {
+
+
+        $.post("/DrawRegion/Save", { RegionsData: Regions }, function (response) {
+            //$modalBody.html(response);
+            //$modal.modal("show");
+            var strStatus = response.status;
+            if (strStatus === "success") {
+                ShowNotification('success', DataSavedSuccessfully);
+            }
+            else { ShowNotification('error', Erroroccuredtryagain); }
+
+        });
+
+        //// var postData = JSON.stringify({Regions });
+        ////console.log(postData);
+        //// var param = postData.serializeArray();
+        ////       console.log(param);
+        //let ddd = { Name: "asdddd" };
+        //$.ajax({
+        //    type: "Post",
+        //    url: "/DrawRegion/Save",
+
+        //    //datatype: "application/json",
+        //    contentType: "application/json; charset=utf-8",
+
+        //    data: JSON.stringify(ddd),
+        //    success: function (data) {
+        //        $('span.loading').remove();
+        //    },
+        //    error: function (xhr, textStatus, thrownError, data) {
+        //        alert("Error: " + thrownError);
+        //        $('span.loading').remove();
+        //    }
+        //})
+    }
+
+</script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?sensor=true&callback=initMap&libraries=drawing">
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?v=3&sensor=false&libraries=geometry"></script>

@@ -1,0 +1,53 @@
+﻿@model Groups
+@{
+    Layout = null;
+    ViewBag.Title = "Groups";
+}
+
+    <form data-ajax="true" data-ajax-mode="replace" asp-action="Save" asp-controller="Groups" method="post" enctype="multipart/form-data" id="GroupsForm">
+
+        @if (Model.Id != default(long))
+        {<input asp-for="Id" type="hidden" />}
+        <input asp-for="Code" type="hidden" />
+        <input asp-for="CreationDate" type="hidden" />
+        <input asp-for="CreatedBy" type="hidden" />
+        <input asp-for="IsDeleted" type="hidden" />
+
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <label class="control-label">الاسم العربي</label>
+                    <input asp-for="ArabicName" class="form-control" placeholder="الاسم العربي" />
+                    <span asp-validation-for="ArabicName" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <label class="control-label">الاسم الانجليزي</label>
+                    <input asp-for="EnglishName" class="form-control" placeholder="الاسم الانجليزي" />
+                    <span asp-validation-for="EnglishName" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <label class="control-label">الكود</label>
+                    <input asp-for="Code" disabled class="form-control" placeholder="الكود" />
+                    <span asp-validation-for="Code" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col">
+                <br/>
+                <div class="form-group">
+                    <label class="control-label">نشط</label>
+                    <label class="">
+                        @Html.CheckBox("IsActive", Model.IsActive)
+                    </label>
+                </div>
+            </div>
+        </div>
+    </form>
+
+<script src="~/js/Dev/Groups/OpenForm.js"></script>
+<partial name="_ValidationScriptsPartial" />

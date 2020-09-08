@@ -1,0 +1,55 @@
+﻿@model HashSet<Order>
+@{
+    ViewBag.Title = "تجربة واراء العملاء";
+}
+<!--Section: services -->
+    <section class="text-center mb-3">
+        <div class="row sectionheader">
+            <dv class="section-header-title">
+                <p>تجربة وأراء العملاء</p>
+            </dv>
+
+        </div>
+        <div class="customer-review-content">
+            @foreach (var order in Model)
+            {
+                @if (order.OrderService != null)
+                {
+                    <div class="row customer-review-item">
+                        <div class="customer-review-item-inner">
+                            <img src="~/@AppSession.CustomerUploads/@order.Customer.ImageName" class="img-circle" />
+                        </div>
+                        <div class="customer-review-item-inner">
+                            <p>
+                                Review: @order.OrderService.Review
+                            </p>
+                            <span class="fa fa-star">Rate: @order.OrderService.Rate</span>
+                        </div>
+                    </div>
+                }
+                else if (order.OrderItems != null && order.OrderItems.Count() > 0)
+                {
+                    @foreach (var orderitem in order.OrderItems)
+                    {
+                        <div class="row customer-review-item">
+                            <div class="customer-review-item-inner">
+                                <img src="~/@AppSession.CustomerUploads/@order.Customer.ImageName" class="img-circle" />
+                            </div>
+                            <div class="customer-review-item-inner">
+                                <p>
+                                    Review: @orderitem.Review
+                                </p>
+                                <span class="fa fa-star">Rate: @orderitem.Rate</span>
+                            </div>
+                        </div>
+                    }
+                }
+
+            }
+        </div>
+        
+      
+    </section>
+<!--Section: services -->
+<script src="~/js/e-commerceJs/owl.carousel.min.js"></script>
+

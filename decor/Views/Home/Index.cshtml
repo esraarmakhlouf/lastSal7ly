@@ -1,0 +1,349 @@
+﻿
+@{
+    Layout = null;
+    ViewData["Title"] = SharedLocalizer.GetString("Home");
+    var services = _uow.ServicesRepository.GetAll().ToHashSet();
+    var items = _uow.ItemsRepository.GetAll().Include(ent => ent.ItemImages).ToHashSet();
+    //return completed orders
+    var customerReview = _uow.CustomerReviewRepository.GetAll();
+        var customer = _uow.CustomerRepository.GetAll().Count();
+    var itemsCount = items.Count();
+    var technicalsCount = _uow.TechnicalsRepository.GetAll().Count();
+    var ServicesCount = services.Count();
+
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- title -->
+    <title>صلحلي</title>
+
+    <!-- plugins -->
+    <link rel="stylesheet" href="https://cdn.rtlcss.com/bootstrap/v4.2.1/css/bootstrap.min.css" integrity="sha384-vus3nQHTD+5mpDiZ4rkEPlnkcyTP+49BhJ4wJeJunw06ZAp+wzzeBPUXr42fi8If" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/animate.min.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/progress-circle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- defult styles -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- loading screen -->
+    <div class="loading-overlay text-center">
+        <div class="all-spi">
+            <div class="wrap">
+                <div class="loading">
+                    <div class="bounceball"></div>
+                    <div class="text">تحميل</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- navbar mobile -->
+    <div class="nav_bar" id="myNav">
+        <div class="container">
+            <ul>
+                <li> <a href="/Home/index"> الرئيسية </a> </li>
+                <li> <a href="#"> الأعمال </a> </li>
+                <li> <a href="#"> خدمات </a> </li>
+                <li> <a href="#"> من نحن </a> </li>
+                <li> <a href="#"> المدونة </a> </li>
+                <li> <a href="#"> إتصل بنا </a> </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- header -->
+    <header>
+        <div class="top_nav">
+            <button onclick="navToggle()" class="btn btn_navbar d-block d-sm-block d-md-none" id="navbar_toggle">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div id="egg"></div>
+        <div class="container-fluid">
+
+            <!-- logo,navbar -->
+            <div class="logo_nav">
+                <div class="row">
+                    <div class="col-lg-9 col-md-9 col-sm-12 col-12">
+                        <div class="menu d-none d-md-block">
+                            <ul>
+                                <li> <a href="#"> الرئيسية </a> </li>
+                                <li> <a href="#"> الأعمال </a> </li>
+                                <li> <a href="#"> خدمات </a> </li>
+                                <li> <a href="#"> من نحن </a> </li>
+                                <li> <a href="#"> المدونة </a> </li>
+                                <li> <a href="#"> إتصل بنا </a> </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-12 col-12">
+                        <div class="logo">
+                            <a href="#home"> <img src="images/Group 8.png"> </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </header> <!-- header -->
+    <!-- slider -->
+    <div class="slider">
+        <div class="owl-carousel owl-theme" id="home_slider">
+            <div class="item">
+                <div class="overflow"></div>
+                <img src="images/wall.jpg">
+                <div class="text_slider">
+                    <h1>شركة صيانة وقطع غيار متميزة</h1>
+                    <p>إبدأ معنا بأسعار مميزة</p>
+                    <a href="#" class="btn btn-primary">تسوق</a>
+                </div>
+            </div>
+            <div class="item">
+                <div class="overflow"></div>
+                <img src="images/wall2.jpg">
+                <div class="text_slider">
+                    <h1>تسوق أحدث قطع الصيانة المميزة </h1>
+                    <p>إبدأ معنا بأسعار مميزة</p>
+                    <a href="#" class="btn btn-primary">تسوق</a>
+                </div>
+            </div>
+            <div class="item">
+                <div class="overflow"></div>
+                <img src="images/wall.jpg">
+                <div class="text_slider">
+                    <h1>صلحلي لقطع الصيانة تسوق الأن</h1>
+                    <p>إبدأ معنا بأسعار مميزة</p>
+                    <a href="#" class="btn btn-primary">تسوق</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- services -->
+    <div class="services">
+        <div class="container">
+            <div class="all_title">
+                <h3>خدماتنا</h3>
+            </div>
+            <div class="row product_list_grid">
+                @foreach (var service in services)
+                {
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                        <div class="serv_item">
+                            <a href="#">
+                                <img src="@AppSession.ImagesHost/@AppSession.ServicesUploads/@service.ImagePath">
+                                <h3>@service.ArabicName</h3>
+                            </a>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+
+    <!-- services -->
+    <div class="services">
+        <div class="container">
+            <div class="all_title">
+                <h3>قطع الغيار</h3>
+            </div>
+            <div class="row wow fadeIn product_list_grid">
+                @foreach (var item in items)
+                {<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                        <div class="serv_item">
+                            <a href="#">
+                                @if (item.ItemImages != null && item.ItemImages.Count() > 0)
+                                {
+                                    <img src="@AppSession.ImagesHost/@AppSession.ItemsUploads/@item.ItemImages.Select(ent => ent.ImagePath).FirstOrDefault()" width="200" height="200" />
+                                }
+                                <h3>@item.ArabicName</h3>
+                            </a>
+                        </div>
+                    </div>}
+
+            </div>
+        </div>
+    </div>
+
+    <!-- why us -->
+    <div class="why_us">
+        <div class="container">
+            <div class="all_title">
+                <h3>لماذا صلحلي؟</h3>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                    <div class="why_item">
+                        <img src="images/positive-vote.png">
+                        <h3>جودة عالية</h3>
+                        <p>لوريم ايبوسم هو نص يستخدم في المواقع الالكترونية حتي لا يتم وضع كلمات غير مفهومة</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                    <div class="why_item">
+                        <img src="images/clock.png">
+                        <h3>سرعة التوصيل</h3>
+                        <p>لوريم ايبوسم هو نص يستخدم في المواقع الالكترونية حتي لا يتم وضع كلمات غير مفهومة</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                    <div class="why_item">
+                        <img src="images/worker.png">
+                        <h3>عمال ذو خبرة</h3>
+                        <p>لوريم ايبوسم هو نص يستخدم في المواقع الالكترونية حتي لا يتم وضع كلمات غير مفهومة</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- clients -->
+    <div class="clients">
+        <div class="container">
+            <div class="all_title">
+                <h3>تجربة واراء العملاء </h3>
+            </div>
+            <div class="owl-carousel owl-theme" id="client_slider">
+                @foreach (var item in customerReview)
+                {
+                    <div class="item">
+                        <div class="client">
+                            <img src="@AppSession.ImagesHost/@AppSession.CustomerReviewUploads/@item.ImagePath">
+
+                        </div>
+                    </div>
+
+                }
+
+            </div>
+        </div>
+    </div>
+
+    <!-- our information -->
+    <div class="our_info">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-3 col-sm-6 col-12">
+                    <div class="info">
+                        <h3>عدد العملاء</h3>
+                        <div class="progress-circle progress-@customer"><span>@customer</span></div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-12">
+                    <div class="info">
+                        <h3>عدد المعدات</h3>
+                        <div class="progress-circle progress-@itemsCount"><span>@itemsCount</span></div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-12">
+                    <div class="info">
+                        <h3>عدد الصيانة</h3>
+                        <div class="progress-circle progress-@ServicesCount"><span>@ServicesCount</span></div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-12">
+                    <div class="info">
+                        <h3>عدد العمال</h3>
+                        <div class="progress-circle progress-@technicalsCount"><span>@technicalsCount</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="stor-dev ">
+        <div class="row " style="margin-left:0px">
+            <div class="col-md-12 col-sm-12 col-lg-12 stor-dev">
+                <div class="sec-tl-wrp text-center">
+                    <div class="sec-tl-innr m-0">
+                        <h2>تحميل التطبيق</h2>
+                        <p>صيانة منصة الكترونية رائده لتسهيل الحصول على خدمات الصيانة المنزلية بكل سهوله وثقه . </p>
+                        <h4>حمل تطبيق صيانة وشاهد أعمالنا وتمتع بخدمة الصيانة الآن</h4>
+                    </div>
+                </div>
+                <div class="strt-btns text-center">
+
+                    <a class="" href="#"> <i class="fa fa-android" aria-hidden="true"></i>  <span> متوفر على جوجل بلاي</span></a>
+                    <a href="" title=""><i class="fa fa-apple" aria-hidden="true"></i> <span><i>متوفر على</i> آب ستور</span></a>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    <!-- footer -->
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-12 col-12">
+                    <div class="site">
+                        <img src="images/Group 8.png">
+                        <ul>
+                            <li> <a href="#"> <img src="images/Group 25.png"> </a> </li>
+                            <li> <a href="#"> <img src="images/Group 24.png"> </a> </li>
+                            <li> <a href="#"> <img src="images/Group 23.png"> </a> </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-12 col-12">
+                    <div class="contact">
+                        <h3>تواصل معنا</h3>
+                        <p>  القاهرة، مدينة نصر <img src="images/location.png">  </p>
+                        <p> +2014587534 <img src="images/phone.png"> </p>
+                        <p> mail@mail.com <img src="images/Group 4.png"> </p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-12 col-12">
+                    <div class="pages">
+                        <h3>روابط مهمة</h3>
+                        <ul>
+                            <li> <a href="#"> الرئيسية </a> </li>
+                            <li> <a href="#"> من نحن </a> </li>
+                            <li> <a href="#"> المدونة </a> </li>
+                            <li> <a href="#"> شروط الخصوصية </a> </li>
+                            <li> <a href="#"> العملاء </a> </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <p class="copyright">جميع الحقوق محفوظة &copy; 2020</p>
+        </div>
+    </div>
+
+    <!-- js files -->
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="https://cdn.rtlcss.com/bootstrap/v4.2.1/js/bootstrap.min.js" integrity="sha384-a9xOd0rz8w0J8zqj1qJic7GPFfyMfoiuDjC9rqXlVOcGO/dmRqzMn34gZYDTel8k" crossorigin="anonymous"></script>
+    <script src="js/all.min.js"></script>
+    <script src="js/wow.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        new WOW().init();
+
+
+        var Tawk_API = 'cd4d952491e72d0c238fe36a2e9fd60502279a40' || {}, Tawk_LoadStart = new Date();
+        (function () {
+            var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+            s1.async = true;
+            s1.src = 'https://embed.tawk.to/5f38758eb7f44f406e952936/default';
+            s1.charset = 'UTF-8';
+            s1.setAttribute('crossorigin', '*');
+            s0.parentNode.insertBefore(s1, s0);
+        })();
+    </script>
+</body>
+</html>

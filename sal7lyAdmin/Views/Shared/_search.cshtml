@@ -1,0 +1,89 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+<head>
+    <style>
+
+        .form-control {
+            width: 75% !important;
+            color: #8e8e8e !important;
+        }
+
+        .begin-end-form-contol {
+            width: 100% !important;
+        }
+
+        .col-lg-3.editCol {
+            width: 19% !important;
+        }
+
+        .select2.select2-container .select2-selection--multiple {
+            width: 76% !important;
+        }
+        /*.SearchList
+        {
+              width: 38% !important;
+        }*/
+
+    </style>
+</head>
+    <div class="col-md-4">
+        <label class="control-label" style="display:block" id="DateRangeLabel">مده  التاريخ </label>
+
+        <select class="form-control" id="DateRange" name="DateRangeId" style="display:inline">
+            <option selected>اختار</option>
+            <option value="Today">اليوم </option>
+            <option value="yesterday">امس</option>
+            <option value="Last week">الاسبوع الماضي</option>
+            <option value="previous x days">الايام السابقة</option>
+            <option value="Custom">من - الي</option>
+
+        </select>
+    </div>
+
+    @*Date range hidden devs*@
+    <div style="display:none;" id="custom" class=" form-group">
+        <div class=" editCol">
+            <label class="control-label">البداية :</label>
+            <div class="input-group StartDate">
+                <input type="date" class="form-control begin-end-form-contol" name="StartDate" /><span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
+            </div>
+        </div>
+        <div class=" editCol">
+            <label class="control-label">النهاية:</label>
+            <div class="input-group EndDate">
+                <input type="date" class="form-control  begin-end-form-contol" name="EndDate" /><span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
+            </div>
+        </div>
+    </div>
+
+    <div style="display:none;"  id="previous" class="form-group">
+        
+            <label class="control-label">الايام السابقة :</label>
+            <input type="number" class="form-control" name="PreviousDaysNum" />
+
+    </div>
+
+
+<script src="~/js/Dev/SearchControllers.js"></script>
+<script>
+    $(function () {
+        $('.StartDate').bootstrapMaterialDatePicker({
+            time: false,
+            clearButton: true,
+            format: 'YYYY-MM-DD',
+            nowButton: true
+        }).on('change', function (e, date) {
+            $('.EndDate').bootstrapMaterialDatePicker('setMinDate', date);
+        });
+
+        $('.EndDate').bootstrapMaterialDatePicker({
+            time: false,
+            clearButton: true,
+            format: 'YYYY-MM-DD',
+            nowButton: true
+        }).on('change', function (e, date) {
+            $('.StartDate').bootstrapMaterialDatePicker('setMaxDate', date);
+        });
+    });
+</script>

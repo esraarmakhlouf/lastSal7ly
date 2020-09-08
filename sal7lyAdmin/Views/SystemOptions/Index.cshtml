@@ -1,0 +1,32 @@
+﻿@model HashSet<SystemOption>
+@{
+    ViewBag.Title = "System Options";
+}
+
+    <div class="container">
+        <div class="bg-white NewDesign">
+            <div class="row">
+                <div class="col-sm-10">
+                    <div class="page-header">
+                        <div class="page-title">
+                            <h3>اعدات النظام</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr />
+            
+            
+            <div class="grid-container">
+                @*<partial name="_SearchForm" />*@
+                <div id="listDiv">
+                    <partial name="_List" model="@Model" />
+                </div>
+            </div>
+        </div>
+        </div>
+            <script>
+    var SystemOptions = 'System Options';
+            </script>
+            <script src="~/lib/jquery/dist/jquery.min.js"></script>
+            <script src="~/js/Dev/SystemOptions/Index.js"></script>

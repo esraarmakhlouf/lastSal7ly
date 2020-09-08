@@ -1,0 +1,80 @@
+﻿@model HashSet<Order>
+
+<table class="table table-striped table-bordered data-table">
+    <thead>
+        <tr>
+            <th>الكود</th>
+            <th>العميل</th>
+            <th>المورد</th>
+            <th>الحالة</th>
+            <th>قطع الغيار</th>
+            <th>التقيم</th>
+            <th>تاريخ الطلب</th>
+            <th>تاريخ التوصيل</th>
+            <th class="no-sort"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Code</td>
+
+                <td>@item.Customer?.ArabicName</td>
+                @if (@item.ResponsibleUser != null)
+                {
+                    <td>@item.ResponsibleUser.ArabicName</td>
+                }
+                else if (item.ResponsibleUserId == null && item.OrderTrackActionId >= (int)EN_OrderActions.ordered && item.OrderTrackActionId < (int)EN_OrderActions.completed)
+                {
+                    <td>
+                        <button class="btn btn-info" onclick="AssignResponsible(@item.Id)">
+                            <i class="fas fa-pencil-alt"></i>
+                            تعيين مورد
+                        </button>
+                    </td>
+                }
+                else
+                {
+                    <td></td>
+                }
+                <td>@item.OrderTrackAction?.ArabicName</td>
+                <td>@item.OrderItems?.Count</td>
+                <td>
+                    @item.Rate
+                </td>
+                <td>
+                    @item.CreationDate
+                </td>
+                <td>
+                    @item.DeliverDate
+                </td>
+
+                <td class="button">
+
+                    @if (UserAccountMannager.HasPermission(_uow, _security, AppSession.CurrentUser.Id, EN_Screens.Order, EN_Permissions.RejectOrder) && item.OrderTrackActionId == (int)EN_OrderActions.ordered)
+                    {
+                        <button type="button" class="btn btn-sp btn-outline-danger" onclick="ShowDeleteAlert('Order','@item.Id')">
+                            <i class="far fa-trash-alt"></i>
+                            <span class="text"> Reject </span>
+                        </button>
+                    }
+                    @if (UserAccountMannager.HasPermission(_uow, _security, AppSession.CurrentUser.Id, EN_Screens.Order, EN_Permissions.CompleteOrder) && item.ResponsibleUserId != null && item.ResponsibleUserId != 0 && item.OrderTrackActionId >= (int)EN_OrderActions.ordered && item.OrderTrackActionId < (int)EN_OrderActions.completed)
+                    {
+                        <button type="button" class="btn btn-outline-primary" onclick="CompleteOrder('@item.Id')">
+                            <i class="fas fa-pencil-alt"></i>
+                            <span class="text"> Complete </span>
+                        </button>
+                    }
+                    @if (UserAccountMannager.HasPermission(_uow, _security, AppSession.CurrentUser.Id, EN_Screens.Order, EN_Permissions.View))
+                    {
+                        <a class="btn btn-outline-primary" href="/Order/OrderTrack/@item.Id">
+                            <i class="fas fa-pencil-alt"></i>
+                            <span class="text"> Track </span>
+                        </a>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

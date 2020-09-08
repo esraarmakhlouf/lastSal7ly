@@ -1,0 +1,26 @@
+﻿@model Item
+@{ 
+    var items =(Model.Id==default)?new HashSet<ItemImage>(): _uow.ItemImagesRepository.GetMany(ent => ent.ItemId == Model.Id).ToHashSet();
+}
+
+<button type="button" class="ml-1 btn btn-outline-primary pull-right addfile">
+    <i class="fas fa-paperclip"></i>
+</button>
+<input class="fileinput" type="file" accept="*/image" style="display:none;"/>
+<hr />
+<div class="row imagesContainer">
+    @foreach (var item in items)
+    {
+        <div class="col-md-2">
+            <div class="card">
+                <div class="card-image">
+                    <img src="~/@AppSession.ItemsUploads/@item.ImagePath" class="card-img-top" Width="100" Height="100" />
+                    <span class="delete-image" onclick="DeleteImage(this,'')">
+                        <i class="fas fa-times"></i>
+                    </span>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+

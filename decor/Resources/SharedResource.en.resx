@@ -1,0 +1,774 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="-   Control - We will ensure that we are always in control of projects and budgets and those we can demonstrate this to you." xml:space="preserve">
+    <value>-   Control - We will ensure that we are always in control of projects and budgets and those we can demonstrate this to you.</value>
+  </data>
+  <data name="-   Flair - Our projects are not delivered with only the required level of detail, finish and consideration, but an element of creativity that can only be demonstrated by the experience of the finished interior." xml:space="preserve">
+    <value>-   Flair - Our projects are not delivered with only the required level of detail, finish and consideration, but an element of creativity that can only be demonstrated by the experience of the finished interior.</value>
+  </data>
+  <data name="-   Personal - You will know who you are dealing with, and why. You will always be able to speak to a director of the company who knows your business." xml:space="preserve">
+    <value>-   Personal - You will know who you are dealing with, and why. You will always be able to speak to a director of the company who knows your business.</value>
+  </data>
+  <data name="-   Professional - We’ll demonstrate by our actions, our level of expertise to instill confidence in you." xml:space="preserve">
+    <value>-   Professional - We’ll demonstrate by our actions, our level of expertise to instill confidence in you.</value>
+  </data>
+  <data name="-  Corporate Interior Design." xml:space="preserve">
+    <value>-  Corporate Interior Design.</value>
+  </data>
+  <data name="- Commercial Interior Design: Office Interior Design, Retail Interior Design, Restaurants and Café Interior Design." xml:space="preserve">
+    <value>- Commercial Interior Design: Office Interior Design, Retail Interior Design, Restaurants and Café Interior Design.</value>
+  </data>
+  <data name="- Hotel Interior Design." xml:space="preserve">
+    <value>- Hotel Interior Design.</value>
+  </data>
+  <data name="- Interior Design , Execution: Renovation, Project Management, Fit Out Services." xml:space="preserve">
+    <value>- Interior Design , Execution: Renovation, Project Management, Fit Out Services.</value>
+  </data>
+  <data name="- Interior Design Services." xml:space="preserve">
+    <value>- Interior Design Services.</value>
+  </data>
+  <data name="- Residential Interior Design: Landscape Design, Villa Interior Design, Villa Exterior Design." xml:space="preserve">
+    <value>- Residential Interior Design: Landscape Design, Villa Interior Design, Villa Exterior Design.</value>
+  </data>
+  <data name="24/7 CUSTOMER SERVICE" xml:space="preserve">
+    <value>24/7 CUSTOMER SERVICE</value>
+  </data>
+  <data name="25% off" xml:space="preserve">
+    <value>25% off</value>
+  </data>
+  <data name="30 days money back guarantee!" xml:space="preserve">
+    <value>30 days money back guarantee!</value>
+  </data>
+  <data name="35% Off all items" xml:space="preserve">
+    <value>35% Off all items</value>
+  </data>
+  <data name="45% off" xml:space="preserve">
+    <value>45% off</value>
+  </data>
+  <data name="45% off bedrooms" xml:space="preserve">
+    <value>45% off bedrooms</value>
+  </data>
+  <data name="ABD ELFATAH MAHER" xml:space="preserve">
+    <value>ABD ELFATAH MAHER</value>
+  </data>
+  <data name="About Us" xml:space="preserve">
+    <value>About Us</value>
+  </data>
+  <data name="ABOUTUS" xml:space="preserve">
+    <value>ABOUT US</value>
+  </data>
+  <data name="Accessories" xml:space="preserve">
+    <value>Accessories</value>
+  </data>
+  <data name="Accountant MANAGER" xml:space="preserve">
+    <value>Accountant MANAGER</value>
+  </data>
+  <data name="Add to Cart" xml:space="preserve">
+    <value>Add to Cart</value>
+  </data>
+  <data name="Air Coolers" xml:space="preserve">
+    <value>Air Coolers</value>
+  </data>
+  <data name="Air Fryers" xml:space="preserve">
+    <value>Air Fryers</value>
+  </data>
+  <data name="All Categories" xml:space="preserve">
+    <value>All Categories</value>
+  </data>
+  <data name="AMR SOLIMAN" xml:space="preserve">
+    <value>AMR SOLIMAN</value>
+  </data>
+  <data name="Application" xml:space="preserve">
+    <value>Application</value>
+  </data>
+  <data name="Arabic" xml:space="preserve">
+    <value>عربي</value>
+  </data>
+  <data name="Art Prints" xml:space="preserve">
+    <value>Art Prints</value>
+  </data>
+  <data name="Artwork" xml:space="preserve">
+    <value>Artwork</value>
+  </data>
+  <data name="Audio" xml:space="preserve">
+    <value>Audio</value>
+  </data>
+  <data name="Baking Tools" xml:space="preserve">
+    <value>Baking Tools</value>
+  </data>
+  <data name="Bean Bags" xml:space="preserve">
+    <value>Bean Bags</value>
+  </data>
+  <data name="Bedroom" xml:space="preserve">
+    <value>Bedroom</value>
+  </data>
+  <data name="Bedside Tables" xml:space="preserve">
+    <value>Bedside Tables</value>
+  </data>
+  <data name="big offer 2016" xml:space="preserve">
+    <value>big offer 2016</value>
+  </data>
+  <data name="BLOG" xml:space="preserve">
+    <value>Blog</value>
+  </data>
+  <data name="Bookshelves" xml:space="preserve">
+    <value>Bookshelves</value>
+  </data>
+  <data name="BtnClose" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="BtnSave" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="BUSINESS AND LEADERSHIP SKILLS" xml:space="preserve">
+    <value>BUSINESS AND LEADERSHIP SKILLS</value>
+  </data>
+  <data name="buy this template" xml:space="preserve">
+    <value>buy this template</value>
+  </data>
+  <data name="Cabinets" xml:space="preserve">
+    <value>Cabinets</value>
+  </data>
+  <data name="Call:" xml:space="preserve">
+    <value>Call:</value>
+  </data>
+  <data name="Camera &amp; Photo" xml:space="preserve">
+    <value>Camera &amp; Photo</value>
+  </data>
+  <data name="Categories" xml:space="preserve">
+    <value>Categories</value>
+  </data>
+  <data name="Center Tables" xml:space="preserve">
+    <value>Center Tables</value>
+  </data>
+  <data name="Chair" xml:space="preserve">
+    <value>Chair</value>
+  </data>
+  <data name="Clear" xml:space="preserve">
+    <value>Clear</value>
+  </data>
+  <data name="Compare" xml:space="preserve">
+    <value>Compare</value>
+  </data>
+  <data name="Computer" xml:space="preserve">
+    <value>Computer</value>
+  </data>
+  <data name="Contact us, to meet one of our interior design consultants to advise you about your project." xml:space="preserve">
+    <value>Contact us, to meet one of our interior design consultants to advise you about your project.</value>
+  </data>
+  <data name="CONTACTUS" xml:space="preserve">
+    <value>Contact Us</value>
+  </data>
+  <data name="Covers &amp; Refills" xml:space="preserve">
+    <value>Covers &amp; Refills</value>
+  </data>
+  <data name="Creative" xml:space="preserve">
+    <value>Creative</value>
+  </data>
+  <data name="CUSTOMERREVIEW" xml:space="preserve">
+    <value>CUSTOMER REVIEW</value>
+  </data>
+  <data name="Decoration" xml:space="preserve">
+    <value>Decoration</value>
+  </data>
+  <data name="DESIGN MANAGER" xml:space="preserve">
+    <value>DESIGN MANAGER</value>
+  </data>
+  <data name="Dinner Sets" xml:space="preserve">
+    <value>Dinner Sets</value>
+  </data>
+  <data name="Drawings" xml:space="preserve">
+    <value>Drawings</value>
+  </data>
+  <data name="Electronics" xml:space="preserve">
+    <value>Electronics</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="EmailErrorformat" xml:space="preserve">
+    <value>please enter a valid email address</value>
+  </data>
+  <data name="English" xml:space="preserve">
+    <value>English</value>
+  </data>
+  <data name="Enter Your Email" xml:space="preserve">
+    <value>Enter Your Email</value>
+  </data>
+  <data name="Essential" xml:space="preserve">
+    <value>Essential</value>
+  </data>
+  <data name="Fans" xml:space="preserve">
+    <value>Fans</value>
+  </data>
+  <data name="Featured products" xml:space="preserve">
+    <value>Featured products</value>
+  </data>
+  <data name="Footstools" xml:space="preserve">
+    <value>Footstools</value>
+  </data>
+  <data name="free call us" xml:space="preserve">
+    <value>free call us</value>
+  </data>
+  <data name="FREE SHIPPING WORLDWIDE" xml:space="preserve">
+    <value>FREE SHIPPING WORLDWIDE</value>
+  </data>
+  <data name="From luxurious villas and palaces to spas, health clubs, restaurants and other commercial" xml:space="preserve">
+    <value>From luxurious villas and palaces to spas, health clubs, restaurants and other commercial</value>
+  </data>
+  <data name="Frying Pans" xml:space="preserve">
+    <value>Frying Pans</value>
+  </data>
+  <data name="Furniture" xml:space="preserve">
+    <value>Furniture</value>
+  </data>
+  <data name="Furniture Gallery" xml:space="preserve">
+    <value>Furniture Gallery</value>
+  </data>
+  <data name="Gas Stoves" xml:space="preserve">
+    <value>Gas Stoves</value>
+  </data>
+  <data name="Glasses" xml:space="preserve">
+    <value>Glasses</value>
+  </data>
+  <data name="H.R MANAGER" xml:space="preserve">
+    <value>H.R MANAGER</value>
+  </data>
+  <data name="HABIB EL GHANEM" xml:space="preserve">
+    <value>HABIB EL GHANEM</value>
+  </data>
+  <data name="Handbags" xml:space="preserve">
+    <value>Handbags</value>
+  </data>
+  <data name="High-speed" xml:space="preserve">
+    <value>High-speed</value>
+  </data>
+  <data name="Hiring" xml:space="preserve">
+    <value>Hiring</value>
+  </data>
+  <data name="Hodak Chair" xml:space="preserve">
+    <value>Hodak Chair</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Home</value>
+  </data>
+  <data name="Home Appliances" xml:space="preserve">
+    <value>Home Appliances</value>
+  </data>
+  <data name="Home Office" xml:space="preserve">
+    <value>Home Office</value>
+  </data>
+  <data name="Hotels" xml:space="preserve">
+    <value>Hotels</value>
+  </data>
+  <data name="HUGE SALE" xml:space="preserve">
+    <value>HUGE SALE</value>
+  </data>
+  <data name="Humidifiers" xml:space="preserve">
+    <value>Humidifiers</value>
+  </data>
+  <data name="Indoor Lighting" xml:space="preserve">
+    <value>Indoor Lighting</value>
+  </data>
+  <data name="Inflatable Sofas" xml:space="preserve">
+    <value>Inflatable Sofas</value>
+  </data>
+  <data name="Ipsum is simply dummy text." xml:space="preserve">
+    <value>Ipsum is simply dummy text.</value>
+  </data>
+  <data name="Ipsums Dolors Untra" xml:space="preserve">
+    <value>Ipsums Dolors Untra</value>
+  </data>
+  <data name="It`s simple - working with people to create beautiful homes and environments through inspiration and design." xml:space="preserve">
+    <value>It`s simple - working with people to create beautiful homes and environments through inspiration and design.</value>
+  </data>
+  <data name="Job" xml:space="preserve">
+    <value>Job</value>
+  </data>
+  <data name="Juicers" xml:space="preserve">
+    <value>Juicers</value>
+  </data>
+  <data name="KEROLLOS KARAM" xml:space="preserve">
+    <value>KEROLLOS KARAM</value>
+  </data>
+  <data name="Kid's Beds" xml:space="preserve">
+    <value>Kid's Beds</value>
+  </data>
+  <data name="Kitchen &amp; Dining" xml:space="preserve">
+    <value>Kitchen &amp; Dining</value>
+  </data>
+  <data name="Kitchen Tools" xml:space="preserve">
+    <value>Kitchen Tools</value>
+  </data>
+  <data name="Knives" xml:space="preserve">
+    <value>Knives</value>
+  </data>
+  <data name="Lamp" xml:space="preserve">
+    <value>Lamp</value>
+  </data>
+  <data name="Let's get in touch" xml:space="preserve">
+    <value>Let's get in touch</value>
+  </data>
+  <data name="Lightings" xml:space="preserve">
+    <value>Lightings</value>
+  </data>
+  <data name="Living Rooms" xml:space="preserve">
+    <value>Living Rooms</value>
+  </data>
+  <data name="Lorem ipsum dolor sit" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Lorem ipsum dolor sit adipiscing elit." xml:space="preserve">
+    <value />
+  </data>
+  <data name="Lorem Ipsum is simply dummy text of the print and typesetting industry." xml:space="preserve">
+    <value />
+  </data>
+  <data name="Lunch Boxes" xml:space="preserve">
+    <value>Lunch Boxes</value>
+  </data>
+  <data name="MAHMOUD GAMAL" xml:space="preserve">
+    <value>MAHMOUD GAMAL</value>
+  </data>
+  <data name="Make an enquiry" xml:space="preserve">
+    <value>Make an enquiry</value>
+  </data>
+  <data name="Make your home look amazing" xml:space="preserve">
+    <value>Make your home look amazing</value>
+  </data>
+  <data name="MARKTING MANAGER" xml:space="preserve">
+    <value>MARKTING MANAGER</value>
+  </data>
+  <data name="Men" xml:space="preserve">
+    <value>Men</value>
+  </data>
+  <data name="Message" xml:space="preserve">
+    <value>Message</value>
+  </data>
+  <data name="Microwave Ovens" xml:space="preserve">
+    <value>Microwave Ovens</value>
+  </data>
+  <data name="Mission statement" xml:space="preserve">
+    <value>Mission statement</value>
+  </data>
+  <data name="Mixers &amp; Grinders" xml:space="preserve">
+    <value>Mixers &amp; Grinders</value>
+  </data>
+  <data name="Mobiles" xml:space="preserve">
+    <value>Mobiles</value>
+  </data>
+  <data name="MOHAMED ALI" xml:space="preserve">
+    <value>MOHAMED ALI</value>
+  </data>
+  <data name="MOHAMED EL GHANDOUR" xml:space="preserve">
+    <value>MOHAMED EL GHANDOUR</value>
+  </data>
+  <data name="MOHAMED EL HAMMAM" xml:space="preserve">
+    <value>MOHAMED EL HAMMAM</value>
+  </data>
+  <data name="MONEY BACK GUARATEE!" xml:space="preserve">
+    <value>MONEY BACK GUARATEE!</value>
+  </data>
+  <data name="Music" xml:space="preserve">
+    <value>Music</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="New" xml:space="preserve">
+    <value>New</value>
+  </data>
+  <data name="new arrivals" xml:space="preserve">
+    <value>new arrivals</value>
+  </data>
+  <data name="New Design" xml:space="preserve">
+    <value>New Design</value>
+  </data>
+  <data name="new trend" xml:space="preserve">
+    <value>new trend</value>
+  </data>
+  <data name="New year Sale" xml:space="preserve">
+    <value>New year Sale</value>
+  </data>
+  <data name="No matter how big or small, we ensure each project undertaken is delivered in line with the client’s vision, budget and time frame from start to finish." xml:space="preserve">
+    <value>No matter how big or small, we ensure each project undertaken is delivered in line with the client’s vision, budget and time frame from start to finish.</value>
+  </data>
+  <data name="off" xml:space="preserve">
+    <value>off</value>
+  </data>
+  <data name="offer" xml:space="preserve">
+    <value>offer</value>
+  </data>
+  <data name="on rustic bedroom furniture" xml:space="preserve">
+    <value>on rustic bedroom furniture</value>
+  </data>
+  <data name="On selected products" xml:space="preserve">
+    <value>On selected products</value>
+  </data>
+  <data name="Ottomans" xml:space="preserve">
+    <value>Ottomans</value>
+  </data>
+  <data name="Our Services:" xml:space="preserve">
+    <value>Our Services:</value>
+  </data>
+  <data name="Our Team" xml:space="preserve">
+    <value>Our Team</value>
+  </data>
+  <data name="Outdoor Furniture" xml:space="preserve">
+    <value>Outdoor Furniture</value>
+  </data>
+  <data name="outlets our successful portfolio speaks for itself." xml:space="preserve">
+    <value>outlets our successful portfolio speaks for itself.</value>
+  </data>
+  <data name="Ovens" xml:space="preserve">
+    <value>Ovens</value>
+  </data>
+  <data name="Ownership" xml:space="preserve">
+    <value>Ownership</value>
+  </data>
+  <data name="Pages" xml:space="preserve">
+    <value>Pages</value>
+  </data>
+  <data name="Paintings" xml:space="preserve">
+    <value>Paintings</value>
+  </data>
+  <data name="Partitions" xml:space="preserve">
+    <value>Partitions</value>
+  </data>
+  <data name="Pendant Light" xml:space="preserve">
+    <value>Pendant Light</value>
+  </data>
+  <data name="Phone" xml:space="preserve">
+    <value>Phone</value>
+  </data>
+  <data name="Position" xml:space="preserve">
+    <value>Position</value>
+  </data>
+  <data name="Posters" xml:space="preserve">
+    <value>Posters</value>
+  </data>
+  <data name="Price" xml:space="preserve">
+    <value>Price</value>
+  </data>
+  <data name="PROJECT MANAGER" xml:space="preserve">
+    <value>PROJECT MANAGER</value>
+  </data>
+  <data name="PURCHING MANAGER" xml:space="preserve">
+    <value>PURCHING MANAGER</value>
+  </data>
+  <data name="Quick view" xml:space="preserve">
+    <value>Quick view</value>
+  </data>
+  <data name="Racks &amp; Holders" xml:space="preserve">
+    <value>Racks &amp; Holders</value>
+  </data>
+  <data name="RAMY IBRAHIM" xml:space="preserve">
+    <value>RAMY IBRAHIM</value>
+  </data>
+  <data name="Regular Price:" xml:space="preserve">
+    <value>Regular Price:</value>
+  </data>
+  <data name="Residential" xml:space="preserve">
+    <value>Residential</value>
+  </data>
+  <data name="Restaurants And Coffee Shops" xml:space="preserve">
+    <value>Restaurants And Coffee Shops</value>
+  </data>
+  <data name="Retina Display" xml:space="preserve">
+    <value>Retina Display</value>
+  </data>
+  <data name="Rice Cookers" xml:space="preserve">
+    <value>Rice Cookers</value>
+  </data>
+  <data name="Room Heaters" xml:space="preserve">
+    <value>Room Heaters</value>
+  </data>
+  <data name="Sale" xml:space="preserve">
+    <value>Sale</value>
+  </data>
+  <data name="sale up to" xml:space="preserve">
+    <value>sale up to</value>
+  </data>
+  <data name="Save up to" xml:space="preserve">
+    <value>Save up to</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="Season sale" xml:space="preserve">
+    <value>Season sale</value>
+  </data>
+  <data name="Send Message" xml:space="preserve">
+    <value>Send Message</value>
+  </data>
+  <data name="Services" xml:space="preserve">
+    <value>Services</value>
+  </data>
+  <data name="SHADOW DESIGN is one of the best interior design companies in Saudi Arabia with an extensive portfolio of successful projects throughout The Middle East." xml:space="preserve">
+    <value>SHADOW DESIGN is one of the best interior design companies in Saudi Arabia with an extensive portfolio of successful projects throughout The Middle East.</value>
+  </data>
+  <data name="SHADOWSA" xml:space="preserve">
+    <value>SHADOWSA</value>
+  </data>
+  <data name="SHADOWSA, 615، Al Hofuf 36362, Saudi Arabia" xml:space="preserve">
+    <value>SHADOWSA, 615، Al Hofuf 36362, Saudi Arabia</value>
+  </data>
+  <data name="Shoe Saver" xml:space="preserve">
+    <value>Shoe Saver</value>
+  </data>
+  <data name="Shop" xml:space="preserve">
+    <value>Shop</value>
+  </data>
+  <data name="shop by category" xml:space="preserve">
+    <value>shop by category</value>
+  </data>
+  <data name="Shop Now" xml:space="preserve">
+    <value>Shop Now</value>
+  </data>
+  <data name="Shopping Now" xml:space="preserve">
+    <value>Shopping Now</value>
+  </data>
+  <data name="Show:" xml:space="preserve">
+    <value>Show:</value>
+  </data>
+  <data name="Sign up for newsletter" xml:space="preserve">
+    <value>Sign up for newsletter</value>
+  </data>
+  <data name="Size" xml:space="preserve">
+    <value>Size</value>
+  </data>
+  <data name="Sofa cum Beds" xml:space="preserve">
+    <value>Sofa cum Beds</value>
+  </data>
+  <data name="Sofas" xml:space="preserve">
+    <value>Sofas</value>
+  </data>
+  <data name="Sofas &amp; Couches" xml:space="preserve">
+    <value>Sofas &amp; Couches</value>
+  </data>
+  <data name="Sort By:" xml:space="preserve">
+    <value>Sort By:</value>
+  </data>
+  <data name="Spatulas" xml:space="preserve">
+    <value>Spatulas</value>
+  </data>
+  <data name="Special offer" xml:space="preserve">
+    <value>Special offer</value>
+  </data>
+  <data name="Special Price:" xml:space="preserve">
+    <value>Special Price:</value>
+  </data>
+  <data name="special products" xml:space="preserve">
+    <value>special products</value>
+  </data>
+  <data name="SPECIAL-PRODUCTS" xml:space="preserve">
+    <value>SPECIAL PRODUCTS</value>
+  </data>
+  <data name="Stand Mixers" xml:space="preserve">
+    <value>Stand Mixers</value>
+  </data>
+  <data name="Study Tables" xml:space="preserve">
+    <value>Study Tables</value>
+  </data>
+  <data name="Subscribe" xml:space="preserve">
+    <value>Subscribe</value>
+  </data>
+  <data name="Super Pillow" xml:space="preserve">
+    <value>Super Pillow</value>
+  </data>
+  <data name="T.V. &amp; Entertainment Units" xml:space="preserve">
+    <value>T.V. &amp; Entertainment Units</value>
+  </data>
+  <data name="Tableware" xml:space="preserve">
+    <value>Tableware</value>
+  </data>
+  <data name="Tandoor &amp; Grills" xml:space="preserve">
+    <value>Tandoor &amp; Grills</value>
+  </data>
+  <data name="the new design collection" xml:space="preserve">
+    <value>the new design collection</value>
+  </data>
+  <data name="the sofa deser" xml:space="preserve">
+    <value>the sofa deser</value>
+  </data>
+  <data name="Toasters" xml:space="preserve">
+    <value>Toasters</value>
+  </data>
+  <data name="Top Sellers" xml:space="preserve">
+    <value>Top Sellers</value>
+  </data>
+  <data name="Up to 75% Off Furnitured Design Shop Now" xml:space="preserve">
+    <value>Up to 75% Off Furnitured Design Shop Now</value>
+  </data>
+  <data name="Values" xml:space="preserve">
+    <value>Values</value>
+  </data>
+  <data name="VICE MANAGER" xml:space="preserve">
+    <value>VICE MANAGER</value>
+  </data>
+  <data name="Vision statement." xml:space="preserve">
+    <value>Vision statement.</value>
+  </data>
+  <data name="Wall Shelves" xml:space="preserve">
+    <value>Wall Shelves</value>
+  </data>
+  <data name="Wall Stickers" xml:space="preserve">
+    <value>Wall Stickers</value>
+  </data>
+  <data name="Washers" xml:space="preserve">
+    <value>Washers</value>
+  </data>
+  <data name="Water Heaters" xml:space="preserve">
+    <value>Water Heaters</value>
+  </data>
+  <data name="Water Purifiers" xml:space="preserve">
+    <value>Water Purifiers</value>
+  </data>
+  <data name="We are specializing in delivering creative and innovative solutions for a wide range of interior design services for residential and commercial projects." xml:space="preserve">
+    <value>We are specializing in delivering creative and innovative solutions for a wide range of interior design services for residential and commercial projects.</value>
+  </data>
+  <data name="We strive to exceed our client’s expectations and objectives with our international experience, analytical approach and passion for creativity" xml:space="preserve">
+    <value>We strive to exceed our client’s expectations and objectives with our international experience, analytical approach and passion for creativity</value>
+  </data>
+  <data name="We support online 24 hours a day" xml:space="preserve">
+    <value>We support online 24 hours a day</value>
+  </data>
+  <data name="We're available for new projects" xml:space="preserve">
+    <value>We're available for new projects</value>
+  </data>
+  <data name="Welcome to" xml:space="preserve">
+    <value>Welcome to</value>
+  </data>
+  <data name="Welcome to our" xml:space="preserve">
+    <value>Welcome to our</value>
+  </data>
+  <data name="Welcome to SHADOW DESIGN  online decoration Shop" xml:space="preserve">
+    <value>Welcome to SHADOW DESIGN  online decoration Shop</value>
+  </data>
+  <data name="Wishlist" xml:space="preserve">
+    <value>Wishlist</value>
+  </data>
+  <data name="Women" xml:space="preserve">
+    <value>Women</value>
+  </data>
+  <data name="“Decorating is not about making stage sets, it's not about making pretty pictures for the magazines, and it’s really about creating a quality of life, a beauty that nourishes the soul.” -- Albert Hadley" xml:space="preserve">
+    <value>“Decorating is not about making stage sets, it's not about making pretty pictures for the magazines, and it’s really about creating a quality of life, a beauty that nourishes the soul.” -- Albert Hadley</value>
+  </data>
+</root>

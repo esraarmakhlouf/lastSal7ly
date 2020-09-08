@@ -1,0 +1,180 @@
+﻿@model Order
+@{
+    ViewBag.Title = "مراقبة الطلب";
+    long num = UIHelper.GetNumOfStatusService(Model.OrderTracks.ToList());
+}
+<style>
+    .shop-tracking-status .image-order-status-active {
+        right: 41%;
+    }
+    .shop-tracking-status .order-status-timeline .order-status-timeline-completion.c1 {
+        width: 42%;
+    }
+    .shop-tracking-status .order-status-timeline .order-status-timeline-completion.c2 {
+        width: 97%;
+    }
+</style>
+<div class="card " style="background-color: #f0f1f7;">
+    <div class="card-header">
+        <h3 class="text-center"> مراقبة الطلب </h3>
+    </div>
+    <div class="card-body">
+        <div class="row">
+
+            <br />
+            <div class="track-Order-div col-md-12 col-xs-12 m-0">
+
+                <div class="Order-status-div">
+                    <div class="col-12" style="display: flex;">
+
+                        <div class="col-md-8">
+
+                            <p class="Order-id">كود الطلب: @Model.Code</p>
+                        </div>
+                        <div class="col-md-4" style="    display: inline-flex;">
+                            <p class="arriving-in-header"> وقت التوصيل </p>
+                            <div class="arriving-in-details">
+                                <ul>
+                                    <li>
+                                        <p class="delivery-time"> @(Model.DeliverDate-DateTime.Now)</p>
+                                    </li>
+                                    <li>
+                                        <p class="delivery-time"> @Model.DeliverDate?.ToShortDateString()</p>
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="row shop-tracking-status">
+                        <div class="order-status">
+
+                            <div class="order-status-timeline">
+                                <!-- class names: c0 c1 c2 c3 and c4 -->
+                                <div class="order-status-timeline-completion c@(num+1)"></div>
+                            </div>
+
+                            <div class="image-order-status image-order-status-new @(num>-1?"active":"") img-circle">
+                                <span class="status">تم الطلب</span>
+                                <div class="icon"></div>
+                            </div>
+                            <div class="image-order-status image-order-status-active @(num>0?"active":"")  img-circle">
+                                <span class="status">تم قبوله</span>
+                                <div class="icon"></div>
+                            </div>
+                            <div class="image-order-status image-order-status-completed @(num>1?"active":"") img-circle">
+                                <span class="status">منتهى</span>
+                                <div class="icon"></div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                </div>
+
+            </div>
+            <div class=" col-md-8">
+                <div class="customer-details">
+                    <div class="text-center">
+                        <h4> تفاصيل الطلب </h4>
+                    </div>
+
+                    @if (@Model.ResponsibleUser != null)
+                    {
+                        <h5> الفني  المسؤول   </h5>
+                        <table class="table table-striped">
+                            <tbody>
+                                <tr>
+                                    <td>الاسم</td>
+                                    <td>@Model.ResponsibleUser.ArabicName</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    }
+                    @if (Model.OrderService != null)
+                    {
+                        var item = Model.OrderService.Service;
+
+                        <h5> الخدمة   </h5>
+                        <table class="table table-striped">
+                            <tbody>
+                                <tr>
+                                    <th>الاسم</th>
+
+                                </tr>
+
+                                <tr>
+                                    <td>@item.ArabicName</td>
+                                </tr>
+
+
+                            </tbody>
+                        </table>
+                    }
+                    @if (@Model.Customer != null)
+                    {
+                        <h5> العميل   </h5>
+                        <table class="table table-striped">
+                            <tbody>
+                                <tr>
+                                    <td>الاسم</td>
+                                    <td>@Model.Customer.ArabicName</td>
+                                </tr>
+                                <tr>
+                                    <td>العنوان</td>
+                                    <td>@Model.Customer.Address</td>
+                                </tr>
+                                <tr>
+                                    <td>رقم التوصيل</td>
+                                    <td>+@Model.Customer.Mobile</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    }
+
+                </div>
+            </div>
+            <div class=" col-md-4">
+                <div class="customer-details">
+                    <p class="delivery-text"> تفاصيل مراقبه الطلب </p>
+                    @if (Model.OrderTracks != null && Model.OrderTracks.Count > 0)
+                    {
+                        <table class="table">
+                            <thead class="thead-light">
+                                <tr>
+                                    <th>#</th>
+                                    <th>الحدث</th>
+                                    <th>التاريخ</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var action in Model.OrderTracks.OrderBy(ent => ent.CreationDate))
+                                {
+                                    <tr>
+                                        <th scope="row">@action.Id</th>
+                                        <td>@action.OrderTrackAction.ArabicName</td>
+                                        <td>@action.CreationDate</td>
+                                    </tr>
+
+                                }
+                            </tbody>
+                        </table>
+                    }
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+</div>
+
+<script src="~/lib/datetimePiker/moment.min.js"></script>
+
+<script src="~/lib/datetimePiker/bootstrap-material-datetimepicker.js"></script>
+
+
+<script src="~/js/Dev/Order/OpenForm.js"></script>
+<partial name="_ValidationScriptsPartial" />

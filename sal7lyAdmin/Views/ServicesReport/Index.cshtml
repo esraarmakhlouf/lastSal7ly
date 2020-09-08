@@ -1,0 +1,25 @@
+﻿@model HashSet<Order>
+@{
+    ViewBag.Title = "الصيانة";
+}
+
+<div class="card ">
+    <div class="card-header text-center">
+        <h3> الصيانة</h3>
+    </div>
+    <div class="card-body">
+        <div class="grid-container">
+            <partial name="_SearchForm" />
+            <div id="listDiv">
+                <partial name="_List" model="@Model" />
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/js/Dev/ServicesReport/Index.js"></script>
+<script>
+    var Order = 'تعيين فنى';
+</script>

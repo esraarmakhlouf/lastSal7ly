@@ -1,0 +1,65 @@
+﻿@model Order
+@{
+    ViewBag.Title = "Order";
+}
+
+<div class="card ">
+    <div class="card-header text-center">
+        <h3> Order</h3>
+    </div>
+    <div class="card-body">
+        <form data-ajax="true" data-ajax-mode="replace" asp-action="Save" asp-controller="Order" method="post" enctype="multipart/form-data" id="OrderForm" name="OrderForm">
+
+            @if (Model.Id != default(long))
+            {<input asp-for="Id" type="hidden" />}
+            <input asp-for="Code" type="hidden" />
+            <input asp-for="CreationDate" type="hidden" />
+            <input asp-for="CreatedBy" type="hidden" />
+            <input asp-for="IsDeleted" type="hidden" />
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label class="control-label">Items</label>
+                        <select name="Items" id="Items" data-val="true" data-val-required="Required" asp-items="ViewBag.itemsList" class="form-control select2" multiple="">
+                            @*<option value="">ChooseGroup")</option>*@
+                        </select>
+                        <span data-valmsg-for="Items" data-valmsg-replace="true" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="form-group">
+                        <label class="control-label">Customer</label>
+                        <select asp-for="CustomerId" asp-items="ViewBag.customersList" class="form-control select2">
+                            <option value="">Choose Customer</option>
+                        </select>
+                        <span asp-validation-for="CustomerId" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label class="control-label">نشط</label>
+                        <label class="">
+                            @Html.CheckBox("IsActive", Model.IsActive)
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group text-center">
+                        <button class="form cotrol btn btn-success" id="submitOrder" name="submitOrder" type="button" onclick="Save()">حفظ</button>
+                        <a class="form cotrol btn btn-danger" href="/Order/Index" id="cancel" name="cancel"><i class="fas fa-times"></i>  Cancel</a>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+        <script src="~/js/Dev/Order/OpenForm.js"></script>
+        <partial name="_ValidationScriptsPartial" />

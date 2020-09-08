@@ -1,0 +1,69 @@
+﻿
+@{
+    ViewData["Title"] = SharedLocalizer.GetString("About Us");
+
+}
+
+<div class="breadcrumbs">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <ul>
+                    <li class="home"> <a title="Go to Home Page" asp-action="Index" asp-controller="home">@SharedLocalizer.GetString("Home")</a><span>&raquo;</span></li>
+                    <li><strong>@SharedLocalizer.GetString("About Us")</strong></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Breadcrumbs End -->
+<!-- Main Container -->
+
+<div class="main container">
+
+    <div class="about-page">
+        <div class="col-xs-12 col-sm-6">
+            @*<h1>@SharedLocalizer.GetString("Welcome to") <span class="text_color">@SharedLocalizer.GetString("SHADOWSA")</span></h1>
+                <p>
+                    @SharedLocalizer.GetString("SHADOW DESIGN is one of the best interior design companies in Saudi Arabia with an extensive portfolio of successful projects throughout The Middle East.")
+                    <br />  @SharedLocalizer.GetString("We are specializing in delivering creative and innovative solutions for a wide range of interior design services for residential and commercial projects.")
+                    <br />   @SharedLocalizer.GetString("No matter how big or small, we ensure each project undertaken is delivered in line with the client’s vision, budget and time frame from start to finish.")
+                    <br />    @SharedLocalizer.GetString("From luxurious villas and palaces to spas, health clubs, restaurants and other commercial")
+                    <br />     @SharedLocalizer.GetString("outlets our successful portfolio speaks for itself.")
+                    <br />      @SharedLocalizer.GetString("We strive to exceed our client’s expectations and objectives with our international experience, analytical approach and passion for creativity")
+                </p>
+                <ul>
+                    <li>
+                        <i class="fa fa-arrow-right"></i>&nbsp; <a href="#">@SharedLocalizer.GetString("Vision statement.")</a>
+                        <p>@SharedLocalizer.GetString("“Decorating is not about making stage sets, it's not about making pretty pictures for the magazines, and it’s really about creating a quality of life, a beauty that nourishes the soul.” -- Albert Hadley") </p>
+                    </li>
+                    <li>
+                        <i class="fa fa-arrow-right"></i>&nbsp; <a href="#">@SharedLocalizer.GetString("Mission statement")</a>
+                        <p> @SharedLocalizer.GetString("It`s simple - working with people to create beautiful homes and environments through inspiration and design.")</p>
+                    </li>
+                    <li>
+                        <i class="fa fa-arrow-right"></i>&nbsp; <a href="#">@SharedLocalizer.GetString("Values")</a>
+                        <p>
+                            @SharedLocalizer.GetString("-   Personal - You will know who you are dealing with, and why. You will always be able to speak to a director of the company who knows your business.")
+                            <br />    @SharedLocalizer.GetString("-   Flair - Our projects are not delivered with only the required level of detail, finish and consideration, but an element of creativity that can only be demonstrated by the experience of the finished interior.")
+                            <br />     @SharedLocalizer.GetString("-   Control - We will ensure that we are always in control of projects and budgets and those we can demonstrate this to you.")
+                            <br />     @SharedLocalizer.GetString("-   Professional - We’ll demonstrate by our actions, our level of expertise to instill confidence in you.")
+                        </p>
+                    </li>
+                </ul>*@
+        </div>
+        <div class="col-xs-12 col-sm-6">
+            <div class="single-img-add sidebar-add-slider">
+                <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner" role="listbox">
+                        <div class="item active"> <img src="" alt="slide1"> </div>
+                        <div class="item"> <img src="" alt="slide2"> </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

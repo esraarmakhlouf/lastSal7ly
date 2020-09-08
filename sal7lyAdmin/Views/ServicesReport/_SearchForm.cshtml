@@ -1,0 +1,67 @@
+﻿@{
+    string source = ViewBag.source as string;
+}
+
+<div class="search-portlet">
+    <div class="row">
+        <div class="col-md-12">
+            <form action="/ServicesReport/Search" class="normal-search" data-ajax="true" data-ajax-method="POST" data-ajax-mode="replace" data-ajax-update="#listDiv" data-ajax-complete="SearchComplete" id="SearchForm" method="post" style="display: block;">
+                <input type="hidden" id="source" value="@ViewBag.source" />
+
+                <div class="row">
+                    <div class="form-group  col-md-4">
+                        <label>الكود</label>
+                        <input type="text" class="form-control" placeholder="الكود" name="Code">
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label">حالة الطلب</label>
+                            <select class="form-control select2" name="OrderActionId" id="OrderActionId" asp-items="ViewBag.OrderActionList">
+                                <option value="">اختار</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label">الفنى</label>
+                            <select class="form-control select2" name="UserId" id="UserId" asp-items="ViewBag.TechnicalsList">
+                                <option value="">اختار</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label">العميل</label>
+                            <select class="form-control select2" name="CustomerId" id="CustomerId" asp-items="ViewBag.CustomersList">
+                                <option value="">اختار</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label">المدينة</label>
+                            <select class="form-control select2" name="CityId" id="CityId" asp-items="ViewBag.CitiesList">
+                                <option value="">اختار</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    @*<div class="row showSearch">*@
+                    <partial name="_Search" />
+                </div>
+
+                @*</div>*@
+                <br />
+                <div class="form-action">
+                    <button type="button" class="btn btn-primary pull-right margin-0-5" id="searchButton" onclick="reportSearch()">
+                        <i class="fas fa-search"></i>
+                        بحث
+                    </button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>

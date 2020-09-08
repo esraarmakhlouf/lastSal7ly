@@ -1,0 +1,103 @@
+﻿
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Brand Logo -->
+    <a href="/Home/Index" class="brand-link">
+        <img src="/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+             style="opacity: .8">
+        <span class="brand-text font-weight-light">ادمن</span>
+    </a>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <!-- Sidebar user panel (optional) -->
+        @*<div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                <div class="image">
+                    <img src="/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+                </div>
+                <div class="info">
+                    <a href="#" class="d-block">@AppSession.CurrentUser?.UserName</a>
+                </div>
+            </div>*@
+
+        <!-- Sidebar Menu -->
+        <nav class="mt-2">
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                <!-- Add icons to the links using the .nav-icon class
+                with font-awesome or any other icon font library -->
+                @{
+
+                    var modules = _uow.ModulesRepository.GetAll().ToHashSet();
+                    foreach (var module in modules)
+                    {
+                        if (UserAccountMannager.HasPermission(_uow, _security, AppSession.CurrentUser.Id, (EN_Modules)module.Id))
+                        {
+                            <li class='nav-item has-treeview scrollbar @module.EnglishName'>
+
+                                @{var screens = _uow.ScreensRepository.GetMany(ent => ent.ModuleId == module.Id && ent.IsActive && !ent.IsDeleted).ToHashSet();
+                                    if (screens.Count() > 0)
+                                    {
+                                        <a href="#" class="nav-link ">
+                                            <i class="nav-icon fas @module.Icon"></i>
+                                            <p>
+                                                @module.ArabicName
+                                            </p>
+                                        </a>
+                                    }
+                                    <ul class="nav nav-treeview">
+                                        @foreach (var screen in screens)
+                                        {
+                                            if (UserAccountMannager.HasPermission(_uow, _security, AppSession.CurrentUser.Id, (EN_Screens)screen.Id, EN_Permissions.View))
+                                            {
+                                                @if (!string.IsNullOrEmpty(screen.URL))
+                                                {
+                                                    <li class="nav-item">
+                                                        <a href="@screen.URL" class="nav-link" id="@module.Id">
+                                                            <i class="far @screen.Icon nav-icon"></i>
+                                                            <p>@screen.ArabicName</p>
+                                                        </a>
+
+                                                    </li>
+                                                }
+                                                else
+                                                {
+                                                    <li class="nav-item">
+                                                        <a asp-action="index" asp-controller="@screen.ScreenCode" class="nav-link" id="@module.Id">
+                                                            <i class="far @screen.Icon nav-icon"></i>
+                                                            <p>@screen.ArabicName</p>
+                                                        </a>
+
+                                                    </li>
+                                                }
+                                            }
+                                        }
+                                    </ul>
+                                }
+                            </li>
+                        }
+                    }
+                }
+            </ul>
+        </nav>
+        <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+</aside>
+<script>
+    var activeurl = window.location;
+    $(document).ready(function () {
+       // $('li').removeClass("menu-open");
+        $(".sidebar ul li a").each(function () {
+            let li = $(this);
+            if ($(this).attr("href") == activeurl.pathname) {
+                console.log($(this));
+
+                var className = this.id;
+                $(this).addClass("active");
+                $('#'+className).parents('li').addClass("active");
+                $('#' + className).parents('li').addClass("menu-open");
+
+            }
+
+        })
+    })
+</script>

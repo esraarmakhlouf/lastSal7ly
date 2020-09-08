@@ -1,0 +1,55 @@
+﻿@model HashSet<Item>
+@{
+    ViewBag.Title = "قطع الغيار";
+}
+
+
+<!--Section: services -->
+<section class="text-center ">
+    <div class="row sectionheader">
+        <dv class="section-header-title">
+            <p>قطع الغيار</p>
+        </dv>
+
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <!--Grid row-->
+            <div class="row wow fadeIn product_list_grid">
+                @foreach (var item in Model)
+                {
+
+                    <!--Grid column-->
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <!--Card-->
+                        <div class="card">
+                            <div class="card-body view overlay">
+                                <!--Card image-->
+                                @if (item.ItemImages != null && item.ItemImages.Count() >0)
+                                    {
+                                <img src="/@AppSession.ItemsUploads/@item.ItemImages.Select(ent=>ent.ImagePath).FirstOrDefault()" width="200" height="200" />
+                                 }
+
+                                <!--Card image-->
+                            </div>
+                            <!--Card content-->
+                            <div class="card-footer">
+                                <p class="blue-text">
+                                    @item.ArabicName
+                                </p>
+                            </div>
+                            <!--Card content-->
+                        </div>
+                        <!--Card-->
+                    </div>
+                    <!--Grid column-->
+                }
+
+
+            </div>
+            <!--Grid row-->
+        </div>
+    </div>
+</section>
+<!--Section: services -->
+<script src="~/js/e-commerceJs/main.js"></script>

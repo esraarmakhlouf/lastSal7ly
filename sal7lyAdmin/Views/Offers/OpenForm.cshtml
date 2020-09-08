@@ -1,0 +1,193 @@
+﻿@model Offer
+@{
+    ViewBag.Title ="العروض";
+}<div class="container">
+    <div class="bg-white NewDesign">
+
+        <div class="row">
+            <div class="col-sm-10">
+                <div class="page-header">
+                    <div class="page-title">
+                        <h3>@ViewBag.Title</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr />
+        <form data-ajax="true" data-ajax-mode="replace" asp-action="Save" asp-controller="Offers" method="post" enctype="multipart/form-data" data-ajax-complete="AfterSave" id="OffersForm">
+
+            @if (Model.Id != default(long))
+            {<input asp-for="Id" type="hidden" />}
+            <input asp-for="Code" type="hidden" />
+            <input asp-for="CreationDate" type="hidden" />
+            <input asp-for="CreatedBy" type="hidden" />
+            <input asp-for="IsDeleted" type="hidden" />
+            <input asp-for="ImagePath" type="hidden" />
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label">نشط</label>
+                        <div class="checkbox checkbox-inline checkbox-info peers ai-c">
+                            @Html.CheckBox("IsActive", Model.IsActive, new { @class = "peer" })
+                            <label class="peers peer-greed js-sb ai-c">
+                                <span class="peer peer-greed"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label">التقديم من خلال برومو كود </label>
+                        <div class="checkbox checkbox-inline checkbox-info peers ai-c">
+                            @Html.CheckBox("ApplyThroughCoupon", Model.ApplyThroughCoupon, new { @class = "peer" })
+                            <label class="peers peer-greed js-sb ai-c">
+                                <span class="peer peer-greed"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-md-6" id="haveCouponCode" @(Model.ApplyThroughCoupon ? "" : " style=display:none")>
+                    <div class="form-group">
+                        <label class="control-label">برومو كود </label>
+                        <input asp-for="CouponCode" class="form-control" placeholder="برومو كود " data-val="true" data-val-required="Required" />
+                        <span asp-validation-for="CouponCode" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label">الكود</label>
+                        <input asp-for="Code" disabled class="form-control" placeholder="الكود" />
+                        <span asp-validation-for="Code" class="text-danger"></span>
+                    </div>
+                </div>
+
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label ">الاسم العربي<span class="text-danger">*</span></label>
+                        <input asp-for="ArabicName" class="form-control" placeholder="الاسم العربي" />
+                        <span asp-validation-for="ArabicName" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label">الاسم الانجليزي<span class="text-danger">*</span></label>
+                        <input asp-for="EnglishName" class="form-control" placeholder="الاسم الانجليزي" />
+                        <span asp-validation-for="EnglishName" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label">قيمة العرض<span class="text-danger">*</span></label>
+                        <input asp-for="OfferValue" class="form-control" placeholder="OfferValue" />
+                        <span asp-validation-for="OfferValue" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label">الخدمة<span class="text-danger">*</span></label>
+                        <select class="form-control select2" asp-for="MainCategoryId" id="type-select" asp-items=" ViewBag.cats"></select>
+                        <span asp-validation-for="MainCategoryId" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-12 clearfix"></div>
+
+
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label">الصنف الاساسي</label>
+                            <select class="form-control select2 items" asp-for="MainItemId" asp-items="ViewBag.MainItemId" data-val="true" data-val-required="Required" )">
+                                <option value="">اختر الصنف</option>
+                            </select>
+                            <span asp-validation-for="MainItemId" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label">الصنف الهدية</label>
+                            <select class="form-control select2 items" asp-for="FreeItemId" asp-items="ViewBag.MainItemId" data-val="true" data-val-required="Required">
+                                <option value="">اختر الصنف</option>
+                            </select>
+                            <span asp-validation-for="FreeItemId" class="text-danger"></span>
+                        </div>
+                    </div>
+
+
+                <div class="clearfix"></div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label">الكمية الاساسية</label>
+                        <input type="number" asp-for="MainQty" class="form-control" placeholder="MainQty" />
+                        <span asp-validation-for="MainQty" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label">الكمية الهدية</label>
+                        <input type="number" asp-for="FreeQty" class="form-control" placeholder="FreeQty" />
+                        <span asp-validation-for="FreeQty" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="row">
+                <div class="col-md-12">
+
+                    <div class="page-header">
+                        <div class="page-title">
+                            <h3>تواريخ العرض</h3>
+                        </div>
+                    </div>
+
+                    <partial name="_ActiveDates" model="Model" />
+                </div>
+                <hr />
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <div class="file-upload">
+                            <div class="image-upload-wrap">
+                                <input id="Image" class="file-upload-input" type='file' onchange="readURL(this);" accept="image/*" />
+                                <div class="drag-text">
+                                    <h3>اسحب وأفلت أو حدد إضافة صورة</h3>
+                                </div>
+                            </div>
+                            <div class="file-upload-content">
+                                <img class="file-upload-image" src="@(string.IsNullOrEmpty(Model.ImagePath) ? "#" :("/"+AppSession.OfferImagesUploads+"/"+Model.ImagePath))" alt="your image" />
+                                <div class="image-title-wrap">
+                                    <button type="button" onclick="DeleteOfferImage('@Model.Id')" class="btn btn-outline-danger">
+                                        <i class="far fa-trash-alt"></i>
+                                       حذف
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <span class="text-danger img-reuired" style="display:none;">مطلوبة</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-action">
+                <button type="button" class="btn btn-outline-info pull-right" onclick="Save()">
+                    <i class="fas fa-save"></i>
+                   حفظ
+                </button>
+                <a href="/Offers/Index" class="btn btn-outline-danger pull-right margin-0-5">
+                    <i class="fas fa-undo-alt"></i>
+                   حذف
+                </a>
+            </div>
+        </form>
+
+        </div>
+    </div>
+
+        <script src="~/js/Dev/Offers/OpenForm.js"></script>
+        <partial name="_ValidationScriptsPartial" />

@@ -1,0 +1,37 @@
+﻿@model HashSet<CustomerReview>
+
+<table  class="table table-striped table-bordered data-table">
+    <thead>
+        <tr>
+            <th>الصورة</th>
+            <th class="no-sort"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td><img src="~/@AppSession.CustomerReviewUploads/@item.ImagePath" class="img-circle" width="60" height="60" /> </td>
+            
+           
+            <td class="button">
+                @if (UserAccountMannager.HasPermission(_uow, _security, AppSession.CurrentUser.Id, EN_Screens.CustomerReview, EN_Permissions.Edit))
+                {
+                    <button class="btn btn-outline-primary" onclick="OpenForm(@item.Id)">
+                        <i class="fas fa-pencil-alt"></i>
+                        <span class="text"> تعديل</span>
+                    </button>
+                }
+
+                @if (UserAccountMannager.HasPermission(_uow, _security, AppSession.CurrentUser.Id, EN_Screens.CustomerReview, EN_Permissions.Delete))
+                {
+                    <button type="button" class="btn btn-sp btn-outline-danger" onclick="ShowDeleteAlert('CustomerReview','@item.Id')">
+                        <i class="far fa-trash-alt"></i>
+                        <span class="text"> حذف</span>
+                    </button>
+                }
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

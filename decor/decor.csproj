@@ -1,0 +1,148 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup Label="Globals">
+    <SccProjectName>SAK</SccProjectName>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
+  </PropertyGroup>
+
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.4" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BL\BL.csproj" />
+    <ProjectReference Include="..\Model\Model.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Connected Services\" />
+    <Folder Include="wwwroot\js\ckeditor\plugins\a11yhelp\dialogs\" />
+    <Folder Include="wwwroot\js\ckeditor\plugins\about\" />
+    <Folder Include="wwwroot\js\ckeditor\plugins\clipboard\" />
+    <Folder Include="wwwroot\js\ckeditor\plugins\div\" />
+    <Folder Include="wwwroot\js\ckeditor\plugins\find\" />
+    <Folder Include="wwwroot\js\ckeditor\plugins\flash\" />
+    <Folder Include="wwwroot\js\ckeditor\plugins\forms\" />
+    <Folder Include="wwwroot\js\ckeditor\plugins\iframe\" />
+    <Folder Include="wwwroot\js\ckeditor\plugins\image\" />
+    <Folder Include="wwwroot\js\ckeditor\plugins\link\" />
+    <Folder Include="wwwroot\js\ckeditor\plugins\liststyle\" />
+    <Folder Include="wwwroot\js\ckeditor\plugins\pastefromgdocs\" />
+    <Folder Include="wwwroot\js\ckeditor\plugins\pastefromword\" />
+    <Folder Include="wwwroot\js\ckeditor\plugins\pastetools\" />
+    <Folder Include="wwwroot\js\ckeditor\plugins\scayt\" />
+    <Folder Include="wwwroot\js\ckeditor\plugins\smiley\" />
+    <Folder Include="wwwroot\js\ckeditor\plugins\specialchar\dialogs\" />
+    <Folder Include="wwwroot\js\ckeditor\plugins\tabletools\" />
+    <Folder Include="wwwroot\js\ckeditor\plugins\table\" />
+    <Folder Include="wwwroot\js\ckeditor\plugins\templates\" />
+    <Folder Include="wwwroot\js\ckeditor\plugins\wsc\" />
+    <Folder Include="wwwroot\js\ckeditor\samples\old\dialog\" />
+    <Folder Include="wwwroot\js\ckeditor\samples\toolbarconfigurator\" />
+    <Folder Include="wwwroot\Uploads\Services\" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <None Include="Views\Home\Index.cshtml" />
+    <None Include="Views\Home\Privacy.cshtml" />
+    <None Include="Views\Shared\Error.cshtml" />
+    <None Include="Views\Shared\_Layout.cshtml" />
+    <None Include="Views\Shared\_ValidationScriptsPartial.cshtml" />
+    <None Include="wwwroot\fonts\font-awesome\fontawesome-webfont3e6e.svg" />
+    <None Include="wwwroot\fonts\font-awesome\fontawesome-webfont3e6e.woff2" />
+    <None Include="wwwroot\fonts\fontawesome-webfont.svg" />
+    <None Include="wwwroot\fonts\fontawesome-webfont.woff2" />
+    <None Include="wwwroot\fonts\glyphicons-halflings-regular.svg" />
+    <None Include="wwwroot\fonts\helveticaneue_medium-webfont.woff2" />
+    <None Include="wwwroot\fonts\helvetica_neu_bold-webfont.woff2" />
+    <None Include="wwwroot\fonts\simple-line-icons\Simple-Line-Icons.svg" />
+    <None Include="wwwroot\js\active.js" />
+    <None Include="wwwroot\js\bootstrap-notify.min.js" />
+    <None Include="wwwroot\js\bootstrap.min.js" />
+    <None Include="wwwroot\js\classy-nav.min.js" />
+    <None Include="wwwroot\js\Dev\ChangePassword.js" />
+    <None Include="wwwroot\js\Dev\CustomerProfile\AddressForm.js" />
+    <None Include="wwwroot\js\Dev\CustomerProfile\MyProfile.js" />
+    <None Include="wwwroot\js\Dev\FavoriteList.js" />
+    <None Include="wwwroot\js\Dev\Footer.js" />
+    <None Include="wwwroot\js\Dev\ForgetPassword.js" />
+    <None Include="wwwroot\js\Dev\Hiring\Apply.js" />
+    <None Include="wwwroot\js\Dev\Home\Blog.js" />
+    <None Include="wwwroot\js\Dev\Home\ContactUs.js" />
+    <None Include="wwwroot\js\Dev\Home\Shop.js" />
+    <None Include="wwwroot\js\Dev\Items\CompareList.js" />
+    <None Include="wwwroot\js\Dev\Orders\CheckOut.js" />
+    <None Include="wwwroot\js\Dev\Orders\Payment.js" />
+    <None Include="wwwroot\js\Dev\SignUp.js" />
+    <None Include="wwwroot\js\Dev\Wishlist.js" />
+    <None Include="wwwroot\js\e-commerceJs\bootstrap.min.js" />
+    <None Include="wwwroot\js\e-commerceJs\cloud-zoom.js" />
+    <None Include="wwwroot\js\e-commerceJs\countdown.js" />
+    <None Include="wwwroot\js\e-commerceJs\jquery-ui.js" />
+    <None Include="wwwroot\js\e-commerceJs\jquery.bxslider.js" />
+    <None Include="wwwroot\js\e-commerceJs\jquery.flexslider.js" />
+    <None Include="wwwroot\js\e-commerceJs\jquery.magnifying-zoom.js" />
+    <None Include="wwwroot\js\e-commerceJs\jquery.min.js" />
+    <None Include="wwwroot\js\e-commerceJs\main.js" />
+    <None Include="wwwroot\js\e-commerceJs\megamenu.js" />
+    <None Include="wwwroot\js\e-commerceJs\mobile-menu.js" />
+    <None Include="wwwroot\js\e-commerceJs\owl.carousel.min.js" />
+    <None Include="wwwroot\js\e-commerceJs\revolution-slider.js" />
+    <None Include="wwwroot\js\jquery.unobtrusive-ajax.min.js" />
+    <None Include="wwwroot\js\jquery\jquery-2.2.4.min.js" />
+    <None Include="wwwroot\js\map-active.js" />
+    <None Include="wwwroot\js\plugins.js" />
+    <None Include="wwwroot\js\popper.min.js" />
+    <None Include="wwwroot\js\site.js" />
+    <None Include="wwwroot\js\site.min.js" />
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.css.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.min.css.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap.css.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap.min.css.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js" />
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js" />
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.js" />
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.js.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.min.js" />
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.min.js.map" />
+    <None Include="wwwroot\lib\bootstrap\LICENSE" />
+    <None Include="wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.js" />
+    <None Include="wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.min.js" />
+    <None Include="wwwroot\lib\jquery-validation\dist\additional-methods.js" />
+    <None Include="wwwroot\lib\jquery-validation\dist\additional-methods.min.js" />
+    <None Include="wwwroot\lib\jquery-validation\dist\jquery.validate.js" />
+    <None Include="wwwroot\lib\jquery-validation\dist\jquery.validate.min.js" />
+    <None Include="wwwroot\lib\jquery-validation\LICENSE.md" />
+    <None Include="wwwroot\lib\jquery\dist\jquery.js" />
+    <None Include="wwwroot\lib\jquery\dist\jquery.min.js" />
+    <None Include="wwwroot\lib\jquery\dist\jquery.min.map" />
+    <None Include="wwwroot\lib\select2\select2.full.min.js" />
+    <None Include="wwwroot\lib\select2\select2.min.js" />
+    <None Include="wwwroot\lib\select2\select2inis.js" />
+    <None Include="wwwroot\lib\tostr\toastr.js" />
+  </ItemGroup>
+
+
+  <ProjectExtensions><VisualStudio><UserProperties appsettings_1json__JsonSchema="https://json.schemastore.org/appveyor" /></VisualStudio></ProjectExtensions>
+
+</Project>

@@ -1,0 +1,9 @@
+C:\Users\user\Desktop\Sala7ly\sal7ly\sal7lyAdmin\RazorHtmlEmails\bin\Debug\netcoreapp2.2\RazorHtmlEmails.deps.json
+C:\Users\user\Desktop\Sala7ly\sal7ly\sal7lyAdmin\RazorHtmlEmails\bin\Debug\netcoreapp2.2\RazorHtmlEmails.dll
+C:\Users\user\Desktop\Sala7ly\sal7ly\sal7lyAdmin\RazorHtmlEmails\bin\Debug\netcoreapp2.2\RazorHtmlEmails.pdb
+C:\Users\user\Desktop\Sala7ly\sal7ly\sal7lyAdmin\RazorHtmlEmails\obj\Debug\netcoreapp2.2\RazorHtmlEmails.csprojAssemblyReference.cache
+C:\Users\user\Desktop\Sala7ly\sal7ly\sal7lyAdmin\RazorHtmlEmails\obj\Debug\netcoreapp2.2\RazorHtmlEmails.csproj.CoreCompileInputs.cache
+C:\Users\user\Desktop\Sala7ly\sal7ly\sal7lyAdmin\RazorHtmlEmails\obj\Debug\netcoreapp2.2\RazorHtmlEmails.AssemblyInfoInputs.cache
+C:\Users\user\Desktop\Sala7ly\sal7ly\sal7lyAdmin\RazorHtmlEmails\obj\Debug\netcoreapp2.2\RazorHtmlEmails.AssemblyInfo.cs
+C:\Users\user\Desktop\Sala7ly\sal7ly\sal7lyAdmin\RazorHtmlEmails\obj\Debug\netcoreapp2.2\RazorHtmlEmails.dll
+C:\Users\user\Desktop\Sala7ly\sal7ly\sal7lyAdmin\RazorHtmlEmails\obj\Debug\netcoreapp2.2\RazorHtmlEmails.pdb

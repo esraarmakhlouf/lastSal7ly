@@ -1,0 +1,33 @@
+﻿@model HashSet<OrderTrackAction>
+@{
+    ViewBag.Title = "OrderTrackAction";
+}
+
+    <div class="card ">
+        <div class="card-header text-center">
+            <h3> OrderTrackAction</h3>
+        </div>
+        <div class="card-body">
+            <div class="grid-container">
+                <partial name="_SearchForm" />
+                @*@if (UserAccountMannager.HasPermission(_uow, _security, AppSession.CurrentUser.Id, EN_Screens.OrderTrackAction, EN_Permissions.Create))
+                {
+                    <button class="btn btn-warning mb-2" onclick="OpenForm(null)">
+                        <i class="fas fa-plus"></i>
+                      اضافة
+                    </button>
+                    
+                }*@
+                <div id="listDiv">
+                    <partial name="_List" model="@Model" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/js/Dev/OrderTrackAction/Index.js"></script>
+<script>
+        var OrderTrackAction = 'OrderTrackAction';
+</script>

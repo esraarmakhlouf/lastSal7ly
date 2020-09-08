@@ -1,0 +1,56 @@
+﻿@model Groups
+@{
+    Layout = null;
+    var screens = ViewBag.screens as HashSet<Screens>;
+    var allPermissions = _uow.PermissionsRepository.GetMany(ent => ent.IsActive && !ent.IsDeleted).ToHashSet();
+    var allScreenPermission = _uow.ScreenPermissionsRepository.GetAll().ToHashSet();
+    var groupPermissions = _security.GetGroupPermissions(Model.Id);
+    bool groupHasPermission = false;
+    bool groupHasAllPermissions = false;
+}
+
+<hr />
+<div class="accordion" id="accordion">
+    @foreach (var item in screens)
+    {
+        var screenPermissions = allScreenPermission.Where(ent => ent.ScreenId == item.Id).ToHashSet();
+        var permissions = allPermissions.Where(ent => screenPermissions.Any(sc => sc.PermissionId == ent.Id)).ToHashSet();
+        groupHasAllPermissions = screenPermissions.Count() == groupPermissions.Where(ent => ent.ScreenId == item.Id).Count();
+
+        <div class="card">
+            <div class="card-header" id="heading@(item.Id)">
+                <h2 class="mb-0">
+                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse@(item.Id)" aria-expanded="true" aria-controls="collapse@(item.Id)">
+                         @item.ArabicName
+                        
+                    </button>
+                </h2>
+            </div>
+            <div id="collapse@(item.Id)" class="collapse" aria-labelledby="heading@(item.Id)" data-parent="#accordion">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col">
+                            <label class="form-control">
+                                <input type="checkbox" class="selectall" @(groupHasAllPermissions ? "checked" : "") onchange="SetAllScreenPermissions('@Model.Id', '@item.Id',this)" />
+                               Select All
+                            </label>
+                        </div>
+
+                        @foreach (var permission in permissions)
+                        {
+                            groupHasPermission = groupPermissions.Where(ent => ent.PermissionId == permission.Id && ent.ScreenId == item.Id).Count() > 0;
+
+                            <div class="col">
+                                <label class="form-control">
+                                    <input type="checkbox" class="permission" @(groupHasPermission ? "checked" : "") onchange="SetPermission('@Model.Id','@item.Id','@permission.Id',this)" />
+                                    @permission.ArabicName
+                                </label>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+    </div>
+

@@ -1,0 +1,32 @@
+﻿@model HashSet<CustomerReview>
+@{
+    ViewBag.Title = "الخدمات";
+}
+
+    <div class="card ">
+        <div class="card-header text-center">
+            <h3> اراء العملاء</h3>
+        </div>
+        <div class="card-body">
+            <div class="grid-container">
+                @if (UserAccountMannager.HasPermission(_uow, _security, AppSession.CurrentUser.Id, EN_Screens.CustomerReview, EN_Permissions.Create))
+                {
+                    <button class="btn btn-warning mb-2" onclick="OpenForm(null)">
+                        <i class="fas fa-plus"></i>
+                      اضافة
+                    </button>
+                }
+                <div id="listDiv">
+                    <partial name="_List" model="@Model" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/js/Dev/CustomerReview/Index.js"></script>
+
+<script>
+        var CustomerReview = 'CustomerReview';
+</script>

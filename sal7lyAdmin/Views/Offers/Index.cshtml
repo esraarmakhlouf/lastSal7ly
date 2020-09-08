@@ -1,0 +1,28 @@
+﻿@model HashSet<Offer>
+@{
+    ViewBag.Title = "العروض";
+}
+
+
+<div class="card ">
+    <div class="card-header text-center">
+        <h3> العروض</h3>
+    </div>
+    <div class="card-body">
+
+        <div class="grid-container">
+            <partial name="_SearchForm" />
+            @if (UserAccountMannager.HasPermission(_uow, _security, AppSession.CurrentUser.Id, EN_Screens.Offers, EN_Permissions.Create))
+            {
+                <a class="btn btn-warning mb-2" href="/Offers/OpenForm">
+                    <i class="fas fa-plus"></i>
+                  اضافة
+                </a>
+            }
+            <div id="listDiv">
+                <partial name="_List" model="@Model" />
+            </div>
+        </div>
+
+    </div>
+</div>

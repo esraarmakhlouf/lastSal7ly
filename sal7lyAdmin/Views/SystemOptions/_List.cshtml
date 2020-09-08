@@ -1,0 +1,28 @@
+﻿@model HashSet<SystemOption>
+
+<table  class="table table-hover table-bordered table-striped sp-table sp-data-table">
+    <thead>
+        <tr>
+            <th class="no-sort">القيمة</th>
+            <th class="no-sort">تعديل</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        { 
+        <tr>
+            <td>
+                <fieldset disabled>
+                        <partial name="_RowTemplate" model="item" />
+                </fieldset>
+            </td>
+            <td class="button">
+                @if (UserAccountMannager.HasPermission(_uow, _security, AppSession.CurrentUser.Id, EN_Screens.SystemOptions, EN_Permissions.Edit) && !item.IsReadOnly)
+                {
+                    <i class="fas fa-pencil-alt text-success" data-toggle="tooltip" data-placement="top" title="Edit" onclick="OpenForm(@item.Id)"></i>
+                }
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

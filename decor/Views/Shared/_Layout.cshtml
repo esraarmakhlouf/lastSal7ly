@@ -1,0 +1,267 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - @SharedLocalizer.GetString("SHADOWSA")</title>
+
+    <link href='https://fonts.googleapis.com/css?family=Poppins:400,300,500,600,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="~/css/e-commerceCss/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="~/css/e-commerceCss/font-awesome.css" media="all">
+    <link rel="stylesheet" type="text/css" href="~/css/e-commerceCss/simple-line-icons.css" media="all">
+    <link rel="stylesheet" type="text/css" href="~/css/e-commerceCss/owl.carousel.css">
+    <link rel="stylesheet" type="text/css" href="~/css/e-commerceCss/owl.theme.css">
+    <link rel="stylesheet" type="text/css" href="~/css/e-commerceCss/owl.transitions.css">
+    <link rel="stylesheet" type="text/css" href="~/css/e-commerceCss/animate.css" media="all">
+    <link rel="stylesheet" type="text/css" href="~/css/e-commerceCss/flexslider.css">
+    <link rel="stylesheet" type="text/css" href="~/css/e-commerceCss/jquery-ui.css">
+    <link href="~/css/e-commerceCss/revolution-slider.css" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/e-commerceCss/quick_view_popup.css" type="text/css">
+    <link rel="stylesheet" type="text/css" href="~/css/e-commerceCss/style.css" media="all">
+    <link href="~/css/ImageUpload.css" rel="stylesheet" />
+    <link href="~/lib/select2/select2.min.css" rel="stylesheet" />
+    <link href="~/css/site.css" rel="stylesheet" />
+
+    @if (AppSession.IsArabic)
+    {
+        //arabic
+        <link rel="stylesheet" type="text/css" href="~/css/e-commerceCss/bootstraprtl.min.css">
+        <link rel="stylesheet" type="text/css" href="~/css/arabic.css" media="all">
+        <link href="~/css/site.css" rel="stylesheet" />
+
+    }
+    <link href="~/css/newstyle.css" rel="stylesheet" />
+    <script src="~/js/e-commerceJs/jquery.min.js"></script>
+</head>
+<body>
+    @*============================ Mobile Menu Area ============================*@
+   @* <partial name="_MobileMenu" />*@
+    @*============================ Page Content Area ============================*@
+    <div id="page">
+        <partial name="_Header" />
+        @RenderBody()
+        <partial name="_Footer" />
+        @*============================ Shared Modals Area ============================*@
+    </div>
+    @*============================ Quick View Area ============================*@
+    <div id="quick_view_popup-overlay"></div>
+    <div id="quick_view_popup-wrap">
+        <div id="quick_view_popup-outer">
+            <div id="quick_view_popup-content">
+                <div id="quickviewbody" style="width:auto;height:auto;overflow: auto;position:relative;">
+
+                </div>
+            </div>
+            <a href="javascript:;" style="display: inline;" id="quick_view_popup-close" onclick="CloseQuickView()">
+                <i class="fa fa-times-circle"></i>
+            </a>
+        </div>
+    </div>
+
+    @*------------ Shared Modals Section -------------*@
+    <div class="modal sp-modal fade" id="ModalForm" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="ModalHeaderTittle"></h5>
+                </div>
+                <div class="modal-body">
+
+                </div>
+                <div class="modal-footer">
+                    <button id="btnSave" type="button" onclick="Save(this)" class="btn btn-primary">
+                        
+                        @SharedLocalizer.GetString("BtnSave")
+                    </button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">
+                        
+                        @SharedLocalizer.GetString("BtnClose")
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    @*============================ Shared Modals Area ============================*@
+
+    <!--Newsletter Popup Start-->
+    <div>
+        @*
+                <div id="myModal" class="modal fade">
+
+                <div class="modal-dialog newsletter-popup">
+
+                    <div class="modal-content">
+
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+
+                        <div class="modal-body">
+
+                            <h4 class="modal-title">Join Our Newsletters</h4>
+
+                            <form id="newsletter-form" method="post" action="#">
+
+                                <div class="content-subscribe">
+
+                                    <div class="form-subscribe-header">
+
+                                        <label>Enter your email and we'll send you a coupon with 10% off your next order.</label>
+
+                                    </div>
+
+                                    <div class="input-box">
+
+                                        <input type="text" class="input-text newsletter-subscribe" title="Sign up for our newsletter" name="email" placeholder="Enter your email address">
+
+                                    </div>
+
+                                    <div class="actions">
+
+                                        <button class="button-subscribe" title="Subscribe" type="submit">Subscribe</button>
+
+                                    </div>
+
+                                </div>
+
+                            </form>
+
+                            <div class="subscribe-bottom">
+
+                                <input name="notshowpopup" id="notshowpopup" type="checkbox">
+
+                                Don’t show this popup again
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>*@
+    </div>
+    <!--End of Newsletter Popup-->
+    @*============================ Scripts Area ============================*@
+    <partial name="_ScriptsPartial" />
+    <script>
+        jQuery(document).ready(function () {
+            jQuery('.tp-banner').show().revolution(
+                {
+                    dottedOverlay: "none",
+                    delay: 10000,
+                    startwidth: 960,
+                    startheight: 715,
+                    hideThumbs: 200,
+                    thumbWidth: 100,
+                    thumbHeight: 50,
+                    thumbAmount: 5,
+                    navigationType: "bullet",
+                    navigationArrows: "on",
+                    touchenabled: "on",
+                    onHoverStop: "off",
+                    swipe_velocity: 0.7,
+                    swipe_min_touches: 1,
+                    swipe_max_touches: 1,
+                    drag_block_vertical: false,
+                    parallax: "mouse",
+                    parallaxBgFreeze: "on",
+                    parallaxLevels: [7, 4, 3, 2, 5, 4, 3, 2, 1, 0],
+                    keyboardNavigation: "off",
+                    navigationHAlign: "center",
+                    navigationVAlign: "bottom",
+                    navigationHOffset: 0,
+                    navigationVOffset: 60,
+
+
+
+                    shadow: 0,
+
+
+
+                    spinner: "spinner4",
+
+
+
+                    stopLoop: "off",
+
+                    stopAfterLoops: -1,
+
+                    stopAtSlide: -1,
+
+
+
+                    shuffle: "off",
+
+
+
+                    autoHeight: "off",
+
+                    forceFullWidth: "off",
+
+
+
+
+
+
+
+
+
+                    hideThumbsOnMobile: "off",
+
+                    hideNavDelayOnMobile: 1500,
+
+                    hideBulletsOnMobile: "off",
+
+                    hideArrowsOnMobile: "off",
+
+                    hideThumbsUnderResolution: 0,
+
+
+
+                    hideSliderAtLimit: 0,
+
+                    hideCaptionAtLimit: 0,
+
+                    hideAllCaptionAtLilmit: 0,
+
+                    startWithSlide: 0,
+
+                    fullScreenOffsetContainer: ".header"
+
+                });
+
+
+
+        });	//ready
+
+
+
+
+
+
+    </script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
+
+<script>
+    $(document).ready(function () {
+      
+    });
+    $(".mega-menu-title").click(function () {
+        var isopen = $(".IndexView");
+        debugger;
+        if (isopen.length == 0) {
+            $(".mega-menu-category").addClass("IndexView");
+            $(".mega-menu-category").toggleClass("open");
+            event.stopPropagation();
+        }
+        else {
+            $(".mega-menu-category").removeClass("IndexView");
+
+            $(".mega-menu-category").toggleClass("open");
+            event.preventDefault();
+
+        }
+    })
+</script>

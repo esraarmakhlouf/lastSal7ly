@@ -1,0 +1,156 @@
+﻿body {
+}
+.header-top {
+    background: #fedd16;
+    width: 100%;
+    height: 30px;
+}
+.logo {
+    margin-top: -20px;
+    margin-bottom: 10px;
+    /* border-radius: 50px; */
+    margin-right: 60%;
+    z-index: 99999;
+    position: absolute;
+}
+.logo img{
+    height:110px;
+    width:110px;
+}
+ .call-us-inner {
+    margin-top: 10px;
+}
+.mtmegamenu{
+    margin:0px 0px 0px 0px;
+}
+.header-body {
+    height:40px;
+}
+
+.sectionheader{
+    width:100%;
+    margin:20px;
+    text-align:center;
+    
+}
+.section-header-title {
+    margin: auto;
+}
+.sectionheader p {
+    background-color: black;
+    color: yellow;
+    padding: 8px 20px;
+    border-radius: 40px;
+    text-align: center;
+    font-size: large;
+}
+
+.card-footer {
+    background-color: #fedd16;
+    font: bold 18px arial;
+}
+/*Sal7ly Important start*/
+.sal7ly-important {
+    background-color: #fedd16;
+    padding: 20px 30px;
+    margin: 30px 0px;
+}
+
+
+.sal7ly-important img {
+    height: 80px;
+    width: 80px;
+}
+.sal7ly-important-item{
+    padding:5px 40px;
+    text-align:center;
+}
+    .sal7ly-important-item p {
+        font:normal 13px arial;
+    }
+    .sal7ly-important-item-inner {
+        margin: 5px auto;
+    }
+
+/*Sal7ly Important end*/
+
+/*   Customer Review start  */
+.customer-review-content {
+    text-align: center;
+    margin: 0px 20%;
+}
+.customer-review-item {
+    margin:25px auto;
+    background-color: #e8e8db;
+    
+    border-radius: 20px;
+}
+.customer-review-item-inner{
+    margin:auto;
+    width:100%
+}
+.customer-review-item-inner img {
+    height: 60px;
+    width: 60px;
+    margin-top: -20px;
+}
+.customer-review-item p {
+    font: bold 13px arial;
+    margin: 8px 15px;
+}
+/*   Customer Review end  */
+
+/*   footer start  */
+.footer {
+    margin-top: 20px;
+    background-color: #191917;
+}
+.links-title-yellow{
+    color:yellow;
+}
+.footer-content-white {
+    color: white;
+}
+.footer img{
+    width:100px;
+    height:100px;
+}
+.coppyright-center{
+    margin:auto;
+    margin-top:5px;
+    color:white;
+}
+/*   footer end  */
+
+.slider-container {
+    position: relative;
+    background: url('../Uploads/Services//1.jpeg') no-repeat;
+    background-size: 100% 100%;
+    text-align: center;
+    margin: 0px 0px 35px;
+    min-height: 80vh;
+}
+.slider-container .overlay {
+    background-color: rgba(0,0,0,0.6);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+.owl-controls{
+    left:50%;
+    top:100%
+}
+/*.slider-container {
+    background-image: url('../Uploads/Services//1.jpeg');
+    text-align: center;
+}*/
+
+.card {
+    border: 0px solid rgba(0,0,0,.125);
+}
+.card-body {
+    padding: 0rem;
+}

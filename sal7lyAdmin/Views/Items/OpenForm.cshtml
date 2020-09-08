@@ -1,0 +1,153 @@
+﻿@model Item
+@{
+    ViewBag.Title = "الاصناف";
+}
+<style>
+    .displayDiv {
+        display: block !important;
+    }
+
+    .hideDiv {
+        display: none !important;
+    }
+</style>
+
+<div class="card ">
+    <div class="card-header text-center">
+        <h3> الاصناف</h3>
+    </div>
+    <div class="card-body">
+        <form data-ajax="true" data-ajax-mode="replace" asp-action="Save" asp-controller="Items" method="post" enctype="multipart/form-data"  id="ItemsForm">
+
+            @if (Model.Id != default(long))
+            {<input asp-for="Id" type="hidden" />}
+            <input asp-for="Code" type="hidden" />
+            <input asp-for="CreationDate" type="hidden" />
+            <input asp-for="CreatedBy" type="hidden" />
+            <input asp-for="IsDeleted" type="hidden" />
+
+            <div class="row">               
+                <div class="col">
+                    <div class="form-group">
+                        <label class="control-label">الاسم العربي</label>
+                        <input asp-for="ArabicName" class="form-control" placeholder="الاسم العربي" />
+                        <span asp-validation-for="ArabicName" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label class="control-label">الاسم الانجليزي</label>
+                        <input asp-for="EnglishName" class="form-control" placeholder="الاسم الانجليزي" />
+                        <span asp-validation-for="EnglishName" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label class="control-label">الخدمة</label>
+                        <select class="form-control select2" asp-for="ServiceId" asp-items="ViewBag.ServiceId">
+                            <option >اختر الخدمة</option>
+                        </select>
+                        <span asp-validation-for="ServiceId" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col CureencyDiv">
+                    <div class="form-group">
+                        <label class="control-label">السعر</label>
+                        <input asp-for="Price" class="form-control" placeholder="السعر" />
+                        <span asp-validation-for="Price" class="text-danger"></span>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label">الكود</label>
+                        <input asp-for="Code" disabled class="form-control" placeholder="الكود" />
+                        <span asp-validation-for="Code" class="text-danger"></span>
+                    </div>
+                </div>
+               
+                <div class="col">
+                    <div class="form-group">
+                        <br />
+                        <label class="control-label">نشط</label>
+                        <label class="">
+                            @Html.CheckBox("IsActive", Model.IsActive, new { @class = "peer" })
+                        </label>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label class="control-label">الوصف انجليزى</label>
+                        <textarea asp-for="DescriptionEnglish" class="form-control" placeholder="الوصف انجليزى" rows="5">
+</textarea>
+                        <span asp-validation-for="DescriptionEnglish" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label class="control-label">الوصف عربى</label>
+                        <textarea asp-for="DescriptionArabic" class="form-control" placeholder="الوصف عربى" rows="5">
+                    </textarea>
+                        <span asp-validation-for="DescriptionArabic" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            @*<div class="@(Model.HaveAdditionalItems == true ? "row diplayDiv" : "row hideDiv" id="AdditionalItemsDiv">
+                    <partial name="_AdditionalItems" model="Model" />
+                </div>*@
+
+
+            <hr />
+            <div class="row">
+                <span class="text-danger hideDiv">MustInsertItemAtLeaset</span>
+                <nav>
+                    <div class="nav nav-tabs Et-Tabs" id="nav-tab" role="tablist">
+                        <a class="nav-item nav-link " id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">الصور</a>
+                    </div>
+                </nav>
+
+                <div class="tab-content" id="nav-tabContent">
+
+                    <div class="tab-pane fade  in" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                        <partial name="_Images" model="Model" />
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <div class="form-group text-center">
+                        <button class="form cotrol btn btn-success" id="submitItems" name="submitItems" type="button" onclick="Save()"> <i class="fas fa-save"></i>حفظ</button>
+                        <a class="form cotrol btn btn-danger" href="/Items/Index" id="cancel" name="cancel"><i class="fas fa-undo-alt"></i>رجوع</a>
+                    </div>
+                </div>
+                
+            </div>
+
+        </form>
+    </div>
+</div>
+
+<script src="~/js/Dev/Items/OpenForm.js"></script>
+<partial name="_ValidationScriptsPartial" />
+
+
+

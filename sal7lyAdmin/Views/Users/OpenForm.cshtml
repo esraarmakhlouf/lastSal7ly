@@ -1,0 +1,233 @@
+﻿@model Users
+@{
+    ViewBag.Title = "المستخدمين";
+    bool showCommision = Model.JobTitleId == (int)En_JobTitle.Technical || Model.JobTitleId == (int)En_JobTitle.Supplier;
+    bool showService = Model.JobTitleId != null && Model.JobTitleId == (int)En_JobTitle.Technical;
+}
+
+<div class="card ">
+    <div class="card-header text-center">
+        <h3> المستخدمين</h3>
+    </div>
+    <div class="card-body">
+        <form data-ajax="true" data-ajax-mode="replace" asp-action="Save" asp-controller="Users" method="post" enctype="multipart/form-data" data-ajax-complete="AfterSave" id="UsersForm" name="UsersForm">
+
+            @if (Model.Id != default(long))
+            {<input asp-for="Id" type="hidden" />
+                <input asp-for="Technical.Id" type="hidden" />}
+            <input asp-for="Code" type="hidden" />
+            <input asp-for="CreationDate" type="hidden" />
+            <input asp-for="CreatedBy" type="hidden" />
+            <input asp-for="IsDeleted" type="hidden" />
+            <input asp-for="ImageName" type="hidden" />
+            <input asp-for="Lat" type="hidden" />
+            <input asp-for="Long" type="hidden" />
+            <input class="XY_Position" value="@Model.Lat,@Model.Long" type="hidden" />
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label class="control-label">الكود</label>
+                        <input asp-for="Code" disabled class="form-control" placeholder="الكود" />
+                        <span asp-validation-for="Code" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <br />
+                        <label class="control-label">نشط</label>
+                        <label class="">
+                            @Html.CheckBox("IsActive", Model.IsActive)
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label class="control-label">الاسم العربي</label>
+                        <input asp-for="ArabicName" class="form-control" placeholder="الاسم العربي" />
+                        <span asp-validation-for="ArabicName" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label class="control-label">الاسم الانجليزي</label>
+                        <input asp-for="EnglishName" class="form-control" placeholder="الاسم الانجليزي" />
+                        <span asp-validation-for="EnglishName" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label class="control-label required">أسم المستخدم</label>
+                        <input asp-for="UserName" class="form-control" placeholder="UserName" />
+                        <span asp-validation-for="UserName" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label class="control-label required">كلمة السر</label>
+                        <input type="password" asp-for="Password" class="form-control" placeholder="Password" autocomplete="new-password" value="@(string.IsNullOrEmpty(Model.Password) ? "" : EncryptANDDecrypt.DecryptText(Model.Password))" />
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label class="control-label">الهاتف</label>
+                        <input asp-for="Mobile" class="form-control" placeholder="Mobile" />
+                        <span asp-validation-for="Mobile" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label class="control-label">البريد</label>
+                        <input asp-for="Email" class="form-control" placeholder="Email" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label class="control-label">المدينة</label>
+                        <select asp-for="CityId" asp-items="ViewBag.cites" class="form-control select2">
+                            <option value="">اختار المدينة</option>
+                        </select>
+                        <span asp-validation-for="CityId" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label class="control-label">المنطقة</label>
+                        <select asp-for="DistrictId" id="Dist" asp-items="ViewBag.districts" class="form-control select2">
+                            <option value="">اختار المنطقة</option>
+                        </select>
+                        <span asp-validation-for="CityId" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label class="control-label">المجموعة</label>
+                        <select name="Groups" id="Groups" data-val="true" data-val-required="Required" asp-items="ViewBag.groups" class="form-control select2" multiple="">
+                            @*<option value="">ChooseGroup")</option>*@
+                        </select>
+                        <span data-valmsg-for="Groups" data-valmsg-replace="true" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="form-group">
+                        <label class="control-label">المسمى الوظيفي</label>
+                        <select asp-for="JobTitleId" asp-items="ViewBag.jobTitles" class="form-control select2">
+                            <option value="">اختر</option>
+                        </select>
+                        <span asp-validation-for="JobTitleId" class="text-danger"></span>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="row" id="commission-div" @(!showCommision ? "style=display:none" : "")>
+                <div class="col">
+                    <div class="form-group">
+                        <label class="control-label">العمولة</label>
+                        <input asp-for="Technical.Commission" class="form-control" placeholder="Commission" />
+                        <span asp-validation-for="Technical.Commission" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <br />
+                        <label class="control-label">نسبة</label>
+                        <label class="">
+                            @Html.CheckBox("IsParentage", Model.Technical?.IsParentage)
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="row" id="service-div" @(!showService ? "style=display:none" : "")>
+                <div class="col">
+                    <div class="form-group">
+                        <label class="control-label">الخدمة</label>
+                        <select asp-for="Technical.ServiceId" asp-items="ViewBag.services" class="form-control select2">
+                            <option value="">اختار الخدمة</option>
+                        </select>
+                        <span asp-validation-for="Technical.ServiceId" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label class="control-label">مدير</label>
+                        <label class="">
+                            @Html.CheckBox("IsManager", Model.IsManager)
+                        </label>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label class="control-label">ادمن</label>
+                        <label class="">
+                            @Html.CheckBox("IsMaster", Model.IsMaster)
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <br />
+            <div class="row">
+                <div class="col">
+                    <input id="pac-input" class="form-control controls" type="text" placeholder="Search About Location">
+                    <div class="mapcomtainer">
+                        <div class="map" id="map" style="height:250px">
+                        </div>
+                        <div id="infowindow-content">
+                            <span id="place-name" class="title"></span><br>
+                            <span id="place-address"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div id="imageContainer" class="imageContainer">
+                    <div class="col-md-2" id="UsersImagecontainer">
+
+                        @if (Model.ImageName != null && Model.ImageName != "")
+                        {
+                            <img src="~/@AppSession.UserUploads/@Model.ImageName" class="img-circle" width="60" height="60" />
+                        }
+                    </div>
+                    <div class="col-md-2" id="fileImagecontainer">
+
+                    </div>
+                </div>
+
+                <div class="col">
+                    <input class="fileinput" type="file" onchange="fileinputchange(this)" id="Image" accept="*/image" />
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group text-center">
+                        <button class="form cotrol btn btn-success" id="submitUsers" name="submitUsers" type="button" onclick="Save(this)"> <i class="fas fa-save"></i>حفظ</button>
+                        <a class="form cotrol btn btn-danger" href="/Users/Index" id="cancel" name="cancel"><i class="fas fa-undo-alt"></i>رجوع</a>
+                    </div>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+
+<script src="~/js/Dev/Users/OpenForm.js"></script>
+<partial name="_ValidationScriptsPartial" />
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDLJgQ8S3RQRbmCJ0kbs4B3g_vlJQIXg9s&language='en'&libraries=places&callback=initMap"></script>

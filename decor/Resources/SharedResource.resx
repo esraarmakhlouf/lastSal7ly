@@ -1,0 +1,780 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="-   Control - We will ensure that we are always in control of projects and budgets and those we can demonstrate this to you." xml:space="preserve">
+    <value>- التحكم - سنضمن أننا نسيطر دائمًا على المشروعات والميزانيات وتلك التي يمكننا إظهارها لك.</value>
+  </data>
+  <data name="-   Flair - Our projects are not delivered with only the required level of detail, finish and consideration, but an element of creativity that can only be demonstrated by the experience of the finished interior." xml:space="preserve">
+    <value>- الذوق - لا يتم تسليم مشاريعنا بالمستوى المطلوب من التفاصيل والإنهاء والمراعاة ، ولكن عنصر الإبداع الذي لا يمكن إظهاره إلا من خلال تجربة التصميم الداخلي النهائي.</value>
+  </data>
+  <data name="-   Personal - You will know who you are dealing with, and why. You will always be able to speak to a director of the company who knows your business." xml:space="preserve">
+    <value>- شخصي - ستعرف من تتعامل معه ولماذا. ستكون قادرًا دائمًا على التحدث إلى مدير الشركة الذي يعرف عملك.</value>
+  </data>
+  <data name="-   Professional - We’ll demonstrate by our actions, our level of expertise to instill confidence in you." xml:space="preserve">
+    <value>- احترافي - سنظهر من خلال أفعالنا ومستوى خبرتنا لغرس الثقة فيك.</value>
+  </data>
+  <data name="-  Corporate Interior Design." xml:space="preserve">
+    <value>- التصميم الداخلي للشركات.</value>
+  </data>
+  <data name="- Commercial Interior Design: Office Interior Design, Retail Interior Design, Restaurants and Café Interior Design." xml:space="preserve">
+    <value>- التصميم الداخلي التجاري: مكتب التصميم الداخلي ، التصميم الداخلي التجزئة ، المطاعم والمقاهي التصميم الداخلي.</value>
+  </data>
+  <data name="- Hotel Interior Design." xml:space="preserve">
+    <value>- التصميم الداخلي للفندق.</value>
+  </data>
+  <data name="- Interior Design , Execution: Renovation, Project Management, Fit Out Services." xml:space="preserve">
+    <value>- التصميم الداخلي ، التنفيذ: التجديد ، إدارة المشاريع ، خدمات التجهيز الخارجي.</value>
+  </data>
+  <data name="- Interior Design Services." xml:space="preserve">
+    <value>- خدمات التصميم الداخلي.</value>
+  </data>
+  <data name="- Residential Interior Design: Landscape Design, Villa Interior Design, Villa Exterior Design." xml:space="preserve">
+    <value>- التصميم الداخلي السكني: تصميم المناظر الطبيعية ، فيلا التصميم الداخلي ، فيلا التصميم الخارجي.</value>
+  </data>
+  <data name="24/7 CUSTOMER SERVICE" xml:space="preserve">
+    <value>24/7 خدمة العملاء</value>
+  </data>
+  <data name="25% off" xml:space="preserve">
+    <value>25% </value>
+  </data>
+  <data name="30 days money back guarantee!" xml:space="preserve">
+    <value>30 يوما ضمان استعادة الاموال!</value>
+  </data>
+  <data name="35% Off all items" xml:space="preserve">
+    <value>35 ٪ من جميع الاصناف</value>
+  </data>
+  <data name="45% off" xml:space="preserve">
+    <value>45% خصم</value>
+  </data>
+  <data name="45% off bedrooms" xml:space="preserve">
+    <value>45 ٪ من غرف النوم</value>
+  </data>
+  <data name="ABD ELFATAH MAHER" xml:space="preserve">
+    <value>عبد الفتاح ماهر</value>
+  </data>
+  <data name="About Us" xml:space="preserve">
+    <value>من نحن</value>
+  </data>
+  <data name="ABOUTUS" xml:space="preserve">
+    <value>من نحن</value>
+  </data>
+  <data name="Accessories" xml:space="preserve">
+    <value>مستلزمات</value>
+  </data>
+  <data name="Accountant MANAGER" xml:space="preserve">
+    <value>مدير حسابات</value>
+  </data>
+  <data name="Add to Cart" xml:space="preserve">
+    <value>اضف الي عربة التسوق</value>
+  </data>
+  <data name="Air Coolers" xml:space="preserve">
+    <value>مبردات الهواء</value>
+  </data>
+  <data name="Air Fryers" xml:space="preserve">
+    <value>مقالي الهواء</value>
+  </data>
+  <data name="All Categories" xml:space="preserve">
+    <value>جميع الاقسام</value>
+  </data>
+  <data name="AMR SOLIMAN" xml:space="preserve">
+    <value>عمرو سليمان</value>
+  </data>
+  <data name="Application" xml:space="preserve">
+    <value>تقديم</value>
+  </data>
+  <data name="Arabic" xml:space="preserve">
+    <value>عربي</value>
+  </data>
+  <data name="Art Prints" xml:space="preserve">
+    <value>المطبوعات الفنية</value>
+  </data>
+  <data name="Artwork" xml:space="preserve">
+    <value>العمل الفني</value>
+  </data>
+  <data name="Audio" xml:space="preserve">
+    <value>صوت</value>
+  </data>
+  <data name="Baking Tools" xml:space="preserve">
+    <value>أدوات الخبز</value>
+  </data>
+  <data name="Bean Bags" xml:space="preserve">
+    <value>بين باجز</value>
+  </data>
+  <data name="Bedroom" xml:space="preserve">
+    <value>غرفة نوم</value>
+  </data>
+  <data name="Bedside Tables" xml:space="preserve">
+    <value>طاولات جانبية</value>
+  </data>
+  <data name="big offer 2016" xml:space="preserve">
+    <value>عرض كبير 2016</value>
+  </data>
+  <data name="BLOG" xml:space="preserve">
+    <value>مدونة</value>
+  </data>
+  <data name="Bookshelves" xml:space="preserve">
+    <value>ارفف الكتب</value>
+  </data>
+  <data name="BtnClose" xml:space="preserve">
+    <value>الغاء</value>
+  </data>
+  <data name="BtnSave" xml:space="preserve">
+    <value>احفظ</value>
+  </data>
+  <data name="BUSINESS AND LEADERSHIP SKILLS" xml:space="preserve">
+    <value>مهارات العمل والقيادة</value>
+  </data>
+  <data name="buy this template" xml:space="preserve">
+    <value>شراء هذا القالب</value>
+  </data>
+  <data name="Cabinets" xml:space="preserve">
+    <value>خزائن</value>
+  </data>
+  <data name="Call:" xml:space="preserve">
+    <value>:اتصل</value>
+  </data>
+  <data name="Camera &amp; Photo" xml:space="preserve">
+    <value>كاميرات وصور</value>
+  </data>
+  <data name="Categories" xml:space="preserve">
+    <value>الاقسام</value>
+  </data>
+  <data name="Center Tables" xml:space="preserve">
+    <value>طاولات الوسط</value>
+  </data>
+  <data name="Chair" xml:space="preserve">
+    <value>كرسي</value>
+  </data>
+  <data name="Clear" xml:space="preserve">
+    <value>مسح</value>
+  </data>
+  <data name="Compare" xml:space="preserve">
+    <value>مقارنة</value>
+  </data>
+  <data name="Computer" xml:space="preserve">
+    <value>كومبيوتر</value>
+  </data>
+  <data name="Contact Us" xml:space="preserve">
+    <value>تواصل معنا</value>
+  </data>
+  <data name="Contact us, to meet one of our interior design consultants to advise you about your project." xml:space="preserve">
+    <value>اتصل بنا لمقابلة أحد مستشاريي التصميم الداخلي لدينا لتقديم المشورة لك بشأن مشروعك.</value>
+  </data>
+  <data name="CONTACTUS" xml:space="preserve">
+    <value>اتصل بينا</value>
+  </data>
+  <data name="Covers &amp; Refills" xml:space="preserve">
+    <value>اغطية وغيارات</value>
+  </data>
+  <data name="Creative" xml:space="preserve">
+    <value>ابداع</value>
+  </data>
+  <data name="CUSTOMERREVIEW" xml:space="preserve">
+    <value>راي عملائنا</value>
+  </data>
+  <data name="Decoration" xml:space="preserve">
+    <value>زخرفة</value>
+  </data>
+  <data name="DESIGN MANAGER" xml:space="preserve">
+    <value>مدير التصميم</value>
+  </data>
+  <data name="Dinner Sets" xml:space="preserve">
+    <value>مجموعات العشاء</value>
+  </data>
+  <data name="Drawings" xml:space="preserve">
+    <value>الرسومات</value>
+  </data>
+  <data name="Electronics" xml:space="preserve">
+    <value>الكترونيات</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>البريد الالكتروني</value>
+  </data>
+  <data name="EmailErrorformat" xml:space="preserve">
+    <value>ادخل البريد بطريقة صحيحة</value>
+  </data>
+  <data name="English" xml:space="preserve">
+    <value>English</value>
+  </data>
+  <data name="Enter Your Email" xml:space="preserve">
+    <value>ادخل بريد الالكتروني</value>
+  </data>
+  <data name="Essential" xml:space="preserve">
+    <value>أساسى</value>
+  </data>
+  <data name="Fans" xml:space="preserve">
+    <value>الماروح</value>
+  </data>
+  <data name="Featured products" xml:space="preserve">
+    <value>منتجات مميزة</value>
+  </data>
+  <data name="Footstools" xml:space="preserve">
+    <value>مساند</value>
+  </data>
+  <data name="free call us" xml:space="preserve">
+    <value>اتصل بينا بالمجان</value>
+  </data>
+  <data name="FREE SHIPPING WORLDWIDE" xml:space="preserve">
+    <value>الشحن المجاني في جميع أنحاء العالم</value>
+  </data>
+  <data name="From luxurious villas and palaces to spas, health clubs, restaurants and other commercial" xml:space="preserve">
+    <value>من الفيلات والقصور الفاخرة إلى المنتجعات الصحية والنوادي الصحية والمطاعم وغيرها من العقارات التجارية</value>
+  </data>
+  <data name="Frying Pans" xml:space="preserve">
+    <value>أواني القلي</value>
+  </data>
+  <data name="Furniture" xml:space="preserve">
+    <value>أثاث المنزل</value>
+  </data>
+  <data name="Furniture Gallery" xml:space="preserve">
+    <value>معرض الأثاث</value>
+  </data>
+  <data name="Gas Stoves" xml:space="preserve">
+    <value>مواقد الغاز</value>
+  </data>
+  <data name="Glasses" xml:space="preserve">
+    <value>زجاج</value>
+  </data>
+  <data name="H.R MANAGER" xml:space="preserve">
+    <value>مدير الموارد البشرية</value>
+  </data>
+  <data name="HABIB EL GHANEM" xml:space="preserve">
+    <value>حبيب الغانم</value>
+  </data>
+  <data name="Handbags" xml:space="preserve">
+    <value>حقائب اليد</value>
+  </data>
+  <data name="High-speed" xml:space="preserve">
+    <value>السرعه العاليه</value>
+  </data>
+  <data name="Hiring" xml:space="preserve">
+    <value>وظائف</value>
+  </data>
+  <data name="Hodak Chair" xml:space="preserve">
+    <value>كرسي هوداك</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>الرئيسية</value>
+  </data>
+  <data name="Home Appliances" xml:space="preserve">
+    <value>الأجهزة المنزلية</value>
+  </data>
+  <data name="Home Office" xml:space="preserve">
+    <value>مكتب البيت</value>
+  </data>
+  <data name="Hotels" xml:space="preserve">
+    <value>الفنادق</value>
+  </data>
+  <data name="HUGE SALE" xml:space="preserve">
+    <value>خصم ضخم</value>
+  </data>
+  <data name="Humidifiers" xml:space="preserve">
+    <value>المرطيبات</value>
+  </data>
+  <data name="Indoor Lighting" xml:space="preserve">
+    <value>إضاءة داخلية</value>
+  </data>
+  <data name="Inflatable Sofas" xml:space="preserve">
+    <value>ارائك النفخ</value>
+  </data>
+  <data name="Ipsum is simply dummy text." xml:space="preserve">
+    <value />
+  </data>
+  <data name="Ipsums Dolors Untra" xml:space="preserve">
+    <value />
+  </data>
+  <data name="It`s simple - working with people to create beautiful homes and environments through inspiration and design." xml:space="preserve">
+    <value>الأمر بسيط - العمل مع الناس لإنشاء منازل وبيئات جميلة من خلال الإلهام والتصميم.</value>
+  </data>
+  <data name="Job" xml:space="preserve">
+    <value>وظيفة</value>
+  </data>
+  <data name="Juicers" xml:space="preserve">
+    <value>عصارات</value>
+  </data>
+  <data name="KEROLLOS KARAM" xml:space="preserve">
+    <value>كيرلس كرم</value>
+  </data>
+  <data name="Kid's Beds" xml:space="preserve">
+    <value>سرير اطفال</value>
+  </data>
+  <data name="Kitchen &amp; Dining" xml:space="preserve">
+    <value>المطبخ و الطعام</value>
+  </data>
+  <data name="Kitchen Tools" xml:space="preserve">
+    <value>ادوات المطبخ</value>
+  </data>
+  <data name="Knives" xml:space="preserve">
+    <value>سكاكين</value>
+  </data>
+  <data name="Lamp" xml:space="preserve">
+    <value>مصباح</value>
+  </data>
+  <data name="Let's get in touch" xml:space="preserve">
+    <value>دعونا الحصول على اتصال</value>
+  </data>
+  <data name="Lightings" xml:space="preserve">
+    <value>اضاءات</value>
+  </data>
+  <data name="Living Rooms" xml:space="preserve">
+    <value>غرف المعيشة</value>
+  </data>
+  <data name="Lorem ipsum dolor sit" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Lorem ipsum dolor sit adipiscing elit." xml:space="preserve">
+    <value />
+  </data>
+  <data name="Lorem Ipsum is simply dummy text of the print and typesetting industry." xml:space="preserve">
+    <value />
+  </data>
+  <data name="Lunch Boxes" xml:space="preserve">
+    <value>صناديق الغداء</value>
+  </data>
+  <data name="MAHMOUD GAMAL" xml:space="preserve">
+    <value>محمود جمال</value>
+  </data>
+  <data name="Make an enquiry" xml:space="preserve">
+    <value>استفسر</value>
+  </data>
+  <data name="Make your home look amazing" xml:space="preserve">
+    <value>اجعل منزلك يبدو مذهلاً</value>
+  </data>
+  <data name="MARKTING MANAGER" xml:space="preserve">
+    <value>مدير التسويق</value>
+  </data>
+  <data name="Men" xml:space="preserve">
+    <value>رجالي</value>
+  </data>
+  <data name="Message" xml:space="preserve">
+    <value>الرساله</value>
+  </data>
+  <data name="Microwave Ovens" xml:space="preserve">
+    <value>أفران الميكروويف</value>
+  </data>
+  <data name="Mission statement" xml:space="preserve">
+    <value>بيان المهمة</value>
+  </data>
+  <data name="Mixers &amp; Grinders" xml:space="preserve">
+    <value>خلاطات ومطاحن</value>
+  </data>
+  <data name="Mobiles" xml:space="preserve">
+    <value>تلفونات</value>
+  </data>
+  <data name="MOHAMED ALI" xml:space="preserve">
+    <value>محمد علي</value>
+  </data>
+  <data name="MOHAMED EL GHANDOUR" xml:space="preserve">
+    <value>محمد الغندور</value>
+  </data>
+  <data name="MOHAMED EL HAMMAM" xml:space="preserve">
+    <value>محمد الحمام</value>
+  </data>
+  <data name="MONEY BACK GUARATEE!" xml:space="preserve">
+    <value>ضمان عودة الأموال!</value>
+  </data>
+  <data name="Music" xml:space="preserve">
+    <value>موسيقس</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>الاسم</value>
+  </data>
+  <data name="New" xml:space="preserve">
+    <value>جديد</value>
+  </data>
+  <data name="new arrivals" xml:space="preserve">
+    <value>الوافدين الجدد</value>
+  </data>
+  <data name="New Design" xml:space="preserve">
+    <value>تصميم جديد</value>
+  </data>
+  <data name="new trend" xml:space="preserve">
+    <value>الاتجاه الجديد</value>
+  </data>
+  <data name="New year Sale" xml:space="preserve">
+    <value>تخفيض السنه الجديده</value>
+  </data>
+  <data name="No matter how big or small, we ensure each project undertaken is delivered in line with the client’s vision, budget and time frame from start to finish." xml:space="preserve">
+    <value>بغض النظر عن حجمها أو صغرها ، نضمن تسليم كل مشروع تمشياً مع رؤية العميل وميزانيته وإطاره الزمني من البداية إلى النهاية.</value>
+  </data>
+  <data name="off" xml:space="preserve">
+    <value>خصم</value>
+  </data>
+  <data name="offer" xml:space="preserve">
+    <value>العرض</value>
+  </data>
+  <data name="on rustic bedroom furniture" xml:space="preserve">
+    <value>على أثاث غرفة نوم ريفي</value>
+  </data>
+  <data name="On selected products" xml:space="preserve">
+    <value>على المنتجات المحددة</value>
+  </data>
+  <data name="Ottomans" xml:space="preserve">
+    <value>الأريكة</value>
+  </data>
+  <data name="Our Services:" xml:space="preserve">
+    <value>خدماتنا:</value>
+  </data>
+  <data name="Our Team" xml:space="preserve">
+    <value>فريقنا</value>
+  </data>
+  <data name="Outdoor Furniture" xml:space="preserve">
+    <value>الاثاث  المنزلي الخارجي</value>
+  </data>
+  <data name="outlets our successful portfolio speaks for itself." xml:space="preserve">
+    <value>منافذ محفظة ناجحة لدينا يتحدث عن نفسه.</value>
+  </data>
+  <data name="Ovens" xml:space="preserve">
+    <value>افران</value>
+  </data>
+  <data name="Ownership" xml:space="preserve">
+    <value>المدير</value>
+  </data>
+  <data name="Pages" xml:space="preserve">
+    <value>الصفحات</value>
+  </data>
+  <data name="Paintings" xml:space="preserve">
+    <value>لوحات</value>
+  </data>
+  <data name="Partitions" xml:space="preserve">
+    <value>الأقسام</value>
+  </data>
+  <data name="Pendant Light" xml:space="preserve">
+    <value>ضوء قلادة</value>
+  </data>
+  <data name="Phone" xml:space="preserve">
+    <value>التلفون</value>
+  </data>
+  <data name="Position" xml:space="preserve">
+    <value>المكان</value>
+  </data>
+  <data name="Posters" xml:space="preserve">
+    <value>ملصقات</value>
+  </data>
+  <data name="Price" xml:space="preserve">
+    <value>السعر</value>
+  </data>
+  <data name="PROJECT MANAGER" xml:space="preserve">
+    <value>مدير المشروع</value>
+  </data>
+  <data name="PURCHING MANAGER" xml:space="preserve">
+    <value>مدير المشتريات</value>
+  </data>
+  <data name="Quick view" xml:space="preserve">
+    <value>نظرة سريعة</value>
+  </data>
+  <data name="Racks &amp; Holders" xml:space="preserve">
+    <value>رفوف وحاملي</value>
+  </data>
+  <data name="RAMY IBRAHIM" xml:space="preserve">
+    <value>رامي ابراهيم</value>
+  </data>
+  <data name="Regular Price:" xml:space="preserve">
+    <value>سعر عادي:</value>
+  </data>
+  <data name="Residential" xml:space="preserve">
+    <value>سكني</value>
+  </data>
+  <data name="Restaurants And Coffee Shops" xml:space="preserve">
+    <value>المطاعم والمقاهي</value>
+  </data>
+  <data name="Retina Display" xml:space="preserve">
+    <value>عرض شبكية العين</value>
+  </data>
+  <data name="Rice Cookers" xml:space="preserve">
+    <value>طباخات الأرز</value>
+  </data>
+  <data name="Room Heaters" xml:space="preserve">
+    <value>سخانات الغرف</value>
+  </data>
+  <data name="Sale" xml:space="preserve">
+    <value>خصم</value>
+  </data>
+  <data name="sale up to" xml:space="preserve">
+    <value>خصم يصل الى</value>
+  </data>
+  <data name="Save up to" xml:space="preserve">
+    <value>وفر حتي</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>ابحث</value>
+  </data>
+  <data name="Season sale" xml:space="preserve">
+    <value>تخفيض الموسم</value>
+  </data>
+  <data name="Send Message" xml:space="preserve">
+    <value>ارساله الرساله</value>
+  </data>
+  <data name="Services" xml:space="preserve">
+    <value>خدمات</value>
+  </data>
+  <data name="SHADOW DESIGN is one of the best interior design companies in Saudi Arabia with an extensive portfolio of successful projects throughout The Middle East." xml:space="preserve">
+    <value>شادو للتصميم هو واحدة من أفضل شركات التصميم الداخلي في المملكة العربية السعودية مع مجموعة واسعة من المشاريع الناجحة في جميع أنحاء الشرق الأوسط.</value>
+  </data>
+  <data name="SHADOWSA" xml:space="preserve">
+    <value>شادو</value>
+  </data>
+  <data name="SHADOWSA, 615، Al Hofuf 36362, Saudi Arabia" xml:space="preserve">
+    <value>شادوز, 615، الحفوف 36362, المملكه العربيه السعودية</value>
+  </data>
+  <data name="Shoe Saver" xml:space="preserve">
+    <value>حذاء التوقف</value>
+  </data>
+  <data name="Shop" xml:space="preserve">
+    <value>متجر</value>
+  </data>
+  <data name="shop by category" xml:space="preserve">
+    <value>تسوق بالقسم</value>
+  </data>
+  <data name="Shop Now" xml:space="preserve">
+    <value>تسوق الان</value>
+  </data>
+  <data name="Shopping Now" xml:space="preserve">
+    <value>تسوق الان</value>
+  </data>
+  <data name="Show:" xml:space="preserve">
+    <value>عرض:</value>
+  </data>
+  <data name="Sign up for newsletter" xml:space="preserve">
+    <value>سجل لرسال الخبار</value>
+  </data>
+  <data name="Size" xml:space="preserve">
+    <value>الحجم</value>
+  </data>
+  <data name="Sofa cum Beds" xml:space="preserve">
+    <value>اريكة تشمل السرير</value>
+  </data>
+  <data name="Sofas" xml:space="preserve">
+    <value>الأرائك</value>
+  </data>
+  <data name="Sofas &amp; Couches" xml:space="preserve">
+    <value>مقاعد وارائك</value>
+  </data>
+  <data name="Sort By:" xml:space="preserve">
+    <value>ترتيب ب:</value>
+  </data>
+  <data name="Spatulas" xml:space="preserve">
+    <value>ملاعق</value>
+  </data>
+  <data name="Special offer" xml:space="preserve">
+    <value>عرض خاص</value>
+  </data>
+  <data name="Special Price:" xml:space="preserve">
+    <value>السعر الخاص:</value>
+  </data>
+  <data name="special products" xml:space="preserve">
+    <value>المنتجات الخاصة</value>
+  </data>
+  <data name="SPECIAL-PRODUCTS" xml:space="preserve">
+    <value>منتجات متميزة</value>
+  </data>
+  <data name="Stand Mixers" xml:space="preserve">
+    <value>حامل الخلاطات</value>
+  </data>
+  <data name="Study Tables" xml:space="preserve">
+    <value>طاولات الدراسة</value>
+  </data>
+  <data name="Subscribe" xml:space="preserve">
+    <value>سجل</value>
+  </data>
+  <data name="Super Pillow" xml:space="preserve">
+    <value>وسادة سوبر</value>
+  </data>
+  <data name="T.V. &amp; Entertainment Units" xml:space="preserve">
+    <value>تلفزيونات ةةحدات تسلية</value>
+  </data>
+  <data name="Tableware" xml:space="preserve">
+    <value>أدوات المائدة</value>
+  </data>
+  <data name="Tandoor &amp; Grills" xml:space="preserve">
+    <value>التندور والمشويات</value>
+  </data>
+  <data name="the new design collection" xml:space="preserve">
+    <value>مجموعة التصميم الجديد</value>
+  </data>
+  <data name="the sofa deser" xml:space="preserve">
+    <value>الصحراء أريكة</value>
+  </data>
+  <data name="Toasters" xml:space="preserve">
+    <value>المحامص</value>
+  </data>
+  <data name="Top Sellers" xml:space="preserve">
+    <value>أفضل البائعين</value>
+  </data>
+  <data name="Up to 75% Off Furnitured Design Shop Now" xml:space="preserve">
+    <value>خصم يصل إلى 75٪ على التصميم المفروش تسوق الآن</value>
+  </data>
+  <data name="Values" xml:space="preserve">
+    <value>القيم</value>
+  </data>
+  <data name="VICE MANAGER" xml:space="preserve">
+    <value>نائب المدير</value>
+  </data>
+  <data name="Vision statement." xml:space="preserve">
+    <value>بيان الرؤية.</value>
+  </data>
+  <data name="Wall Shelves" xml:space="preserve">
+    <value>ارفف الحائط</value>
+  </data>
+  <data name="Wall Stickers" xml:space="preserve">
+    <value>ملصقات الحائط</value>
+  </data>
+  <data name="Washers" xml:space="preserve">
+    <value>غسالات</value>
+  </data>
+  <data name="Water Heaters" xml:space="preserve">
+    <value>سخانات المياة</value>
+  </data>
+  <data name="Water Purifiers" xml:space="preserve">
+    <value>أجهزة تنقية المياه</value>
+  </data>
+  <data name="We are specializing in delivering creative and innovative solutions for a wide range of interior design services for residential and commercial projects." xml:space="preserve">
+    <value>نحن متخصصون في تقديم حلول مبتكرة ومبتكرة لمجموعة واسعة من خدمات التصميم الداخلي للمشاريع السكنية والتجارية.</value>
+  </data>
+  <data name="We strive to exceed our client’s expectations and objectives with our international experience, analytical approach and passion for creativity" xml:space="preserve">
+    <value>نحن نسعى جاهدين لتجاوز توقعات عملائنا وأهدافهم من خلال تجربتنا الدولية ونهجنا التحليلي وشغفنا بالإبداع</value>
+  </data>
+  <data name="We support online 24 hours a day" xml:space="preserve">
+    <value>نحن ندعم عبر الإنترنت 24 ساعة في اليوم</value>
+  </data>
+  <data name="We're available for new projects" xml:space="preserve">
+    <value>نحن جاهزون للمشاريع الجديدة</value>
+  </data>
+  <data name="Welcome to" xml:space="preserve">
+    <value>اهلا بكم</value>
+  </data>
+  <data name="Welcome to MyStore online shopping" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Welcome to our" xml:space="preserve">
+    <value>مرحبا بكم في </value>
+  </data>
+  <data name="Welcome to SHADOW DESIGN  online decoration Shop" xml:space="preserve">
+    <value>مرحبا بكم في شادو للتصميم متجر الكتروني للديكور</value>
+  </data>
+  <data name="Wishlist" xml:space="preserve">
+    <value>قائمه الاماني</value>
+  </data>
+  <data name="Women" xml:space="preserve">
+    <value>حريمي</value>
+  </data>
+  <data name="“Decorating is not about making stage sets, it's not about making pretty pictures for the magazines, and it’s really about creating a quality of life, a beauty that nourishes the soul.” -- Albert Hadley" xml:space="preserve">
+    <value>"الديكور لا يتعلق بصنع مجموعات مسرحية ، لا يتعلق بصور جميلة للمجلات ، بل يتعلق حقًا بجودة حياة ، جمال يغذي الروح." - ألبرت هادلي</value>
+  </data>
+</root>

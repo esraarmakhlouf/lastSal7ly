@@ -1,0 +1,96 @@
+﻿@model SystemOption
+
+
+@if (!string.IsNullOrEmpty(Model.ControlType) )
+{
+    <div class="form-group row margin-0-left-right">
+        <div class="col-md-8 no-padding row margin-0-left-right">
+            @{
+                switch (Model.ControlType.ToLower())
+                {
+                    case "textbox":
+
+                        <div class="col-md-6">
+                            <label class="control-label"> <span>@Model.Code</span> <b>:</b>  @Model.ArabicName </label>
+                        </div>
+                        <div class="col-md-6">
+                            <input type="text" required="" name="TextValue" value="@Model.Value" class="form-control" />
+                        </div>
+                        break;
+                  
+                    case "checkbox":
+
+                        <div class="col-md-11">
+                            <label class="control-label"><span>@Model.Id</span>  <b>:</b> @Model.ArabicName</label>
+                        </div>
+                        <div class="col-md-1">
+                            <label class="mt-checkbox sp-checkbox">
+                                <input type="checkbox" name="TextValue" @(Model.Value == "on" ? "checked" : "") />
+                                <span></span>
+                            </label>
+                        </div>
+                        break;
+                    case "check-longtext":
+                        break;
+                    case "check-text":
+
+                        <div class="col-md-11">
+                            <label class="control-label"><span>@Model.Id</span>  <b>:</b> @Model.ArabicName</label>
+                        </div>
+                        <div class="col-md-1">
+                            <label class="mt-checkbox sp-checkbox">
+                                <input type="checkbox" name="TextValue" @(Model.Value == "on" ? "checked" : "") />
+                                <span></span>
+                            </label>
+                        </div>
+                        break;
+                    case "dropdown":
+
+                        <div class="col-md-6">
+                            <label class="control-label"><span>@Model.Id.</span>  <b>:</b> @Model.ArabicName</label>
+                        </div>
+                        var arrValues = Model.DropdownOptions.Split(',').Select(ent => new SelectListItem { Text = ent, Value = ent }).ToHashSet();
+                        var items = new SelectList(arrValues, "Value", "Text", string.IsNullOrEmpty(Model.Value) ? null : Model.Value);
+                        <div class="col-md-6">
+                            <select name="TextValue" asp-items="items" class="form-control select2" required="">
+                                <option value=""></option>
+                            </select>
+                        </div>
+                        break;
+                    case "textarea":
+
+                        <div class="col-md-6">
+                            <label class="control-label"><span>@Model.Code</span>  <b>:</b> @Model.ArabicName</label>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="mt-checkbox sp-checkbox">
+                                <textarea required="" name="TextValue" this.value="@Model.Value" class="form-control"></textarea>
+
+                                <span></span>
+                            </label>
+                        </div>
+                        break;
+                    case "startday":
+
+                        <div class="col-md-6">
+                            <label class="control-label"> <span>@Model.Code</span> <b>:</b> @Model.ArabicName</label>
+                        </div>
+                        <div class="col-md-6">
+                            <input type="time" min="00:00" max="24:00"  required name="Time" value="@Model.Time" class="form-control " />
+                        </div>
+                        break;
+                    default: 
+                        break;
+                }
+            }
+        </div>
+        <div class="col-md-4 no-padding">
+            @if (Model.ControlType.ToLower().Contains("check-"))
+            {
+                <input type="text" required="" name="TextValue" value="@Model.Value" class="form-control" minLength="1" />
+            }
+        </div>
+    </div>
+}
+     
+

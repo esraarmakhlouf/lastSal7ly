@@ -1,0 +1,35 @@
+﻿@model Order
+@{
+    Layout = null;
+    ViewBag.Title = "AssignResponsible";
+}
+
+<form data-ajax="true" data-ajax-mode="replace" asp-action="SaveAssignResponsible" asp-controller="Order" method="post" enctype="multipart/form-data" id="AssignResponsibleForm">
+
+    @if (Model.Id != default(long))
+    {<input asp-for="Id" type="hidden" />}
+
+    <div class="row">
+        <div class="col">
+            <div class="form-group">
+                <label class="control-label">الكود</label>
+                <input asp-for="Code" disabled class="form-control" placeholder="الكود" />
+                <span asp-validation-for="Code" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col">
+            <div class="form-group">
+                <label class="control-label">المورد</label>
+                <select class="form-control select2" asp-for="ResponsibleUserId" required asp-items="ViewBag.AssignResponsibleList">
+                    <option>اختر المورد</option>
+                </select>
+                <span asp-validation-for="ResponsibleUserId" class="text-danger"></span>
+            </div>
+        </div>
+    </div>
+</form>
+
+<script src="~/js/Dev/Order/AssignResponsible.js"></script>
+<partial name="_ValidationScriptsPartial" />
+
+

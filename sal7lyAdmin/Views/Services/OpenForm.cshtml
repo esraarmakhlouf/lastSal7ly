@@ -1,0 +1,85 @@
+﻿@model Service
+@{
+    Layout = null;
+    ViewBag.Title = "الخدمات";
+}
+<style>
+    .file-upload-image{
+        width:250px;
+        height:250px;
+    }
+</style>
+    <form data-ajax="true" data-ajax-mode="replace" asp-action="Save" asp-controller="Services" method="post" enctype="multipart/form-data" id="ServicesForm" name="ServicesForm">
+
+        @if (Model.Id != default(long))
+        {<input asp-for="Id" type="hidden" />}
+        <input asp-for="Code" type="hidden" />
+        <input asp-for="CreationDate" type="hidden" />
+        <input asp-for="CreatedBy" type="hidden" />
+        <input asp-for="IsDeleted" type="hidden" />
+        <input asp-for="ImagePath" type="hidden" />
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <label class="control-label">الكود</label>
+                    <input asp-for="Code" disabled class="form-control" placeholder="الكود" />
+                    <span asp-validation-for="Code" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <br />
+                    <label class="control-label">نشط</label>
+                    <label class="">
+                        @Html.CheckBox("IsActive", Model.IsActive)
+                    </label>
+                </div>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <label class="control-label">الاسم العربي</label>
+                    <input asp-for="ArabicName" class="form-control" placeholder="الاسم العربي" />
+                    <span asp-validation-for="ArabicName" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <label class="control-label">الاسم الانجليزي</label>
+                    <input asp-for="EnglishName" class="form-control" placeholder="الاسم الانجليزي" />
+                    <span asp-validation-for="EnglishName" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+        <div class="col">
+            <div class="form-group">
+                <div class="file-upload">
+                    <div class="image-upload-wrap">
+                        <input id="Image" class="file-upload-input" type='file' onchange="readURL(this);" accept="image/*" />
+                        <div class="drag-text">
+                            <h3>اسحب وأفلت أو حدد إضافة صورة</h3>
+                        </div>
+                    </div>
+                    <div class="file-upload-content">
+                        <img class="file-upload-image" src="@(string.IsNullOrEmpty(Model.ImagePath) ? "#" :("/"+AppSession.ServicesImagesUploads+"/"+Model.ImagePath))" alt="your image" />
+                        <div class="image-title-wrap">
+                            <button type="button" onclick="DeleteServicesImage('@Model.Id')" class="btn btn-outline-danger">
+                                <i class="far fa-trash-alt"></i>
+                                حذف
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <span class="text-danger img-reuired" style="display:none;">مطلوبة</span>
+            </div>
+        </div>
+        </div>
+
+    </form>
+
+
+        <script src="~/js/Dev/Services/OpenForm.js"></script>
+        <partial name="_ValidationScriptsPartial" />
